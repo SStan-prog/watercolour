@@ -1,0 +1,52 @@
+---
+interface Menu {
+  menu: any;
+}
+
+const { menu } = Astro.props;
+---
+
+<footer class="bg-black-200">
+  <div class="px-5">
+    <div class="flex flex-wrap pt-10 max-w-6xl mx-auto">
+      {
+        menu.menuItems.nodes.map((menuItem: any) => {
+          const hasChildren =
+            null !== menuItem.childItems.edges
+              ? menuItem.childItems.edges.length
+              : false;
+
+          return hasChildren ? (
+            <ul class="mb-10 mr-24">
+              <li class="text-white font-heading font-bold text-xl mb-2">
+                <span>{menuItem.label}</span>
+              </li>
+              {menuItem.childItems.edges.map((subItem: any) => {
+                return (
+                  <li class="text-white font-bold text-md mb-1">
+                    <a href={subItem.node.uri}>{subItem.node.label}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : null;
+        })
+      }
+    </div>
+  </div>
+  <div class="bg-black-300 px-5">
+    <div class="w-full py-5">
+      <div class="max-w-6xl mx-auto">
+        <p style="color: #666;">
+          © <span id="year"></span> Land Ark Developments. All Rights Reserved. Prices
+          & Standard Features are subject to change without notice. E & OE.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const year = document.getElementById("year");
+  year!.innerHTML = String(new Date().getFullYear());
+</script>

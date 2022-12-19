@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/PageLayout.astro";
+import Header from "../components/Common/Header/header.astro";
+import Main from "../components/Resources/main.astro";
+
+import { resourcesPageQuery } from "../queries/api";
+const data = await resourcesPageQuery();
+const header = data.page.resources.header;
+const main = data.page.resources.main;
+---
+
+<Layout title="Welcome to Astro.">
+  <Header header={header} />
+  <Main main={main} />
+</Layout>

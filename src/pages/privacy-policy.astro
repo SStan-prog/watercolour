@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/PageLayout.astro";
+import Content from "../components/PrivacyPolicy/Content.astro";
+
+import { privacyPolicyPageQuery } from "../queries/api";
+const data = await privacyPolicyPageQuery();
+
+const content = data.page.content;
+const title = data.page.title;
+---
+
+<Layout title="Welcome to Astro.">
+  <Content title={title} content={content} />
+</Layout>

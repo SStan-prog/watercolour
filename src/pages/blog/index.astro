@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/PageLayout.astro";
+import Header from "../../components/Common/Header/header.astro";
+import Posts from "../../components/Blog/IndexPage/posts.astro";
+
+import { blogPageQuery } from "../../queries/api";
+const data = await blogPageQuery();
+
+const header = data.page.blogHeader;
+const posts = data.posts.nodes;
+---
+
+<Layout title="Welcome to Astro.">
+  <Header header={header} />
+  <Posts posts={posts} />
+</Layout>

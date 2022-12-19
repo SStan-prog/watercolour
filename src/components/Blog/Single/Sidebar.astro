@@ -1,0 +1,32 @@
+---
+const { author, date } = Astro.props;
+
+const postDate = new Date(date);
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+---
+
+<aside class="hidden lg:block">
+  <div>
+    <p class="mb-10 font-heading text-lg font-bold">Written by {author}</p>
+    <span class="flex">
+      <img src="/icons/calendar.svg" alt="calendar" />
+      <p class="font-bold ml-10">
+        {monthNames[postDate.getMonth()]}
+        {postDate.getDate()}, {postDate.getFullYear()}
+      </p>
+    </span>
+  </div>
+</aside>
