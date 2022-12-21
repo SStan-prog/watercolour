@@ -2,6 +2,8 @@
 import Header from "../Blog/Single/Header.astro";
 import Sidebar from "../Blog/Single/Sidebar.astro";
 const { node } = Astro.props;
+
+console.log(node);
 ---
 
 <div
@@ -25,10 +27,16 @@ const { node } = Astro.props;
   .wp-block-image img {
     width: 100%;
     height: auto;
+    margin: 20px 0;
+  }
+
+  .alignright {
+    float: right;
   }
 
   .single p {
     margin-bottom: 20px;
+    line-height: 1.6;
   }
   .single div {
     margin-bottom: 16px;
@@ -45,7 +53,6 @@ const { node } = Astro.props;
   h5,
   h6 {
     font-weight: bold;
-    color: #333;
     padding-top: 20px;
     padding-bottom: 10px;
     line-height: 1.5em;

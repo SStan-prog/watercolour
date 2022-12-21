@@ -22,8 +22,9 @@ function resolveContentTemplate(node: any) {
   return template;
 }
 const Template = resolveContentTemplate(node);
+const seo = node.seo;
 ---
 
-<Layout>
+<Layout seo={seo}>
   <Template node={node} />
 </Layout>

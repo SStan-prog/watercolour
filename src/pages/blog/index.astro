@@ -5,12 +5,12 @@ import Posts from "../../components/Blog/IndexPage/posts.astro";
 
 import { blogPageQuery } from "../../queries/api";
 const data = await blogPageQuery();
-
+const seo = data.page.seo;
 const header = data.page.blogHeader;
 const posts = data.posts.nodes;
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout seo={seo}>
   <Header header={header} />
   <Posts posts={posts} />
 </Layout>

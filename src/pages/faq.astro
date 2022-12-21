@@ -3,13 +3,14 @@ import Layout from "../layouts/PageLayout.astro";
 import Header from "../components/Common/Header/header.astro";
 import Main from "../components/Faq/main.astro";
 
-import { faqPageQuery } from "../queries/api";
+import { faqPageQuery } from "../queries/pages/faq";
 const data = await faqPageQuery();
+const seo = data.page.seo;
 const header = data.page.faq.header;
 const main = data.page.faq.main;
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout seo={seo}>
   <Header header={header} />
   <Main main={main} />
 </Layout>

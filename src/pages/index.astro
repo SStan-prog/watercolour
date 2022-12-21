@@ -1,5 +1,14 @@
 ---
 import Layout from "../layouts/PageLayout.astro";
+import FooterGallery from "../components/Common/FooterGallery/FooterGallery.astro";
+
+import { homePageQuery } from "../queries/pages/home";
+const data = await homePageQuery();
+
+const seo = data.page.seo;
+const gallery = data.themeGeneralSettings.footerGallery.gallery;
 ---
 
-<Layout title="Welcome to Astro." />
+<Layout seo={seo}>
+  <FooterGallery gallery={gallery} />
+</Layout>

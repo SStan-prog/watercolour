@@ -84,6 +84,15 @@ export async function blogPageQuery() {
             sourceUrl
           }
         }
+        seo {
+          metaDesc
+          title
+          twitterDescription
+          twitterTitle
+          twitterImage {
+            sourceUrl
+            }
+          }
       }
       posts {
         nodes {
@@ -117,85 +126,6 @@ export async function blogPageQuery() {
   return data;
 }
 
-export async function faqPageQuery() {
-  const siteFaqPageQueryRes = await fetch(import.meta.env.WP_API_URL, {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      query: `{
-        page(id: "/faq", idType: URI) {
-          faq {
-            main {
-              body
-              heading
-            }
-            header {
-              heading
-              image {
-                sourceUrl
-              }
-            }
-          }
-        }
-      }
-            `,
-    }),
-  });
-  const { data } = await siteFaqPageQueryRes.json();
-  return data;
-}
-
-export async function resourcesPageQuery() {
-  const siteResourcesPageQueryRes = await fetch(import.meta.env.WP_API_URL, {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      query: `{
-        page(id: "/resources", idType: URI) {
-          resources {
-            header {
-              heading
-              image {
-                sourceUrl
-              }
-            }
-            main {
-              heading
-              listLeft
-              listRight
-              body
-            }
-          }
-        }
-      }
-            `,
-    }),
-  });
-  const { data } = await siteResourcesPageQueryRes.json();
-  return data;
-}
-
-export async function privacyPolicyPageQuery() {
-  const sitePrivacyPolicyPageQueryRes = await fetch(
-    import.meta.env.WP_API_URL,
-    {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query: `{
-        page(id: "/privacy-policy", idType: URI) {
-          content
-          title
-        }
-      }
-            `,
-      }),
-    }
-  );
-  const { data } = await sitePrivacyPolicyPageQueryRes.json();
-  return data;
-}
-
 export async function getNodeByURI(uri) {
   const response = await fetch(import.meta.env.WP_API_URL, {
     method: "post",
@@ -218,6 +148,10 @@ export async function getNodeByURI(uri) {
                     uri
                     excerpt
                     content
+                    seo {
+                      metaDesc
+                      title
+                    }
                     categories {
                       nodes {
                         name

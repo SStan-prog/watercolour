@@ -2,13 +2,13 @@
 import Layout from "../layouts/PageLayout.astro";
 import Content from "../components/PrivacyPolicy/Content.astro";
 
-import { privacyPolicyPageQuery } from "../queries/api";
+import { privacyPolicyPageQuery } from "../queries/pages/privacy-policy";
 const data = await privacyPolicyPageQuery();
-
+const seo = data.page.seo;
 const content = data.page.content;
 const title = data.page.title;
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout seo={seo}>
   <Content title={title} content={content} />
 </Layout>
