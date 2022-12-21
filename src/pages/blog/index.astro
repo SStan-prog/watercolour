@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/PageLayout.astro";
-import Header from "../../components/Common/Header/header.astro";
-import Posts from "../../components/Blog/IndexPage/posts.astro";
+import Header from "../../components/Blog/IndexPage/Header.astro";
+import Posts from "../../components/Blog/IndexPage/Posts.astro";
 
 import { blogPageQuery } from "../../queries/api";
 const data = await blogPageQuery();

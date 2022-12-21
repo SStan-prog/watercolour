@@ -2,24 +2,18 @@
 import Header from "../Blog/Single/Header.astro";
 import Sidebar from "../Blog/Single/Sidebar.astro";
 const { node } = Astro.props;
-
-console.log(node);
 ---
 
 <div
   class="max-w-7xl mx-auto grid grid-col-1 lg:grid-cols-10 py-20 gap-20 px-5"
 >
   <div class="col-span-7">
-    <Header
-      title={node.title}
-      author={node.author.node.name}
-      date={node.date}
-    />
+    <Header title={node.title} date={node.date} />
 
     <article set:html={node.content} class="single" />
   </div>
   <div class="col-span-3">
-    <Sidebar author={node.author.node.name} date={node.date} />
+    <Sidebar date={node.date} />
   </div>
 </div>
 

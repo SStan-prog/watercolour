@@ -100,20 +100,10 @@ export async function blogPageQuery() {
           uri
           title
           excerpt
-          categories {
-            nodes {
-              name
-            }
-          }
           featuredImage {
             node {
               mediaItemUrl
               altText
-            }
-          }
-          author {
-            node {
-              name
             }
           }
         }
@@ -139,11 +129,6 @@ export async function getNodeByURI(uri) {
                   ... on Post {
                     id
                     title
-                    author{
-                      node{
-                        name
-                      }
-                    }
                     date
                     uri
                     excerpt
@@ -151,12 +136,6 @@ export async function getNodeByURI(uri) {
                     seo {
                       metaDesc
                       title
-                    }
-                    categories {
-                      nodes {
-                        name
-                        uri
-                      }
                     }
                     featuredImage {
                       node {

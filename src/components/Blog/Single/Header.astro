@@ -1,5 +1,5 @@
 ---
-const { title, date, author } = Astro.props;
+const { title, date } = Astro.props;
 
 const postDate = new Date(date);
 const monthNames = [
@@ -24,7 +24,7 @@ const monthNames = [
   </div>
 
   <div class="lg:hidden block mt-5">
-    <p class="mb-10 font-heading text-lg font-bold">Written by {author}</p>
+    <p class="mb-10 font-heading text-lg font-bold">Written by Land Ark</p>
     <span class="flex">
       <img src="/icons/calendar.svg" alt="calendar" />
       <p class="font-bold ml-10">

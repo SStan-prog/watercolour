@@ -45,8 +45,8 @@ const { posts } = Astro.props;
                 <h2 class="font-bold mb-2">{post.title}</h2>
 
                 <div class=" text-grey-300 mb-1">
-                  by {post.author.node.name} | {monthNames[date.getMonth()]}{" "}
-                  {date.getDate()}, {date.getFullYear()}
+                  by Land Ark | {monthNames[date.getMonth()]} {date.getDate()},{" "}
+                  {date.getFullYear()}
                 </div>
                 <p set:html={post.excerpt} />
               </div>
