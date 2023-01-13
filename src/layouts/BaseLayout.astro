@@ -1,7 +1,9 @@
 ---
-import "@fontsource/amethysta";
-import "@fontsource/roboto";
-import { SEO } from "astro-seo";
+import '@fontsource/amethysta';
+import '@fontsource/roboto';
+import '@fontsource/roboto/700.css';
+
+import { SEO } from 'astro-seo';
 export interface Props {
   title: string;
 }
@@ -26,8 +28,8 @@ console.log(seo);
       :root {
         /* FONTS */
 
-        --font-heading: "Amethysta", serif;
-        --font-body: "Roboto", sans-serif;
+        --font-heading: 'Amethysta', serif;
+        --font-body: 'Roboto', sans-serif;
 
         --color-red: #b44141;
       }
@@ -48,6 +50,7 @@ console.log(seo);
       body {
         background-color: var(--color-offwhite);
         font-family: var(--font-body);
+        color: #666;
       }
 
       .content-block p {

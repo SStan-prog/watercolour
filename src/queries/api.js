@@ -1,7 +1,7 @@
 export async function navQuery() {
   const siteNavQueryRes = await fetch(import.meta.env.WP_API_URL, {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `{
                 menus(where: {location: PRIMARY}) {
@@ -36,8 +36,8 @@ export async function navQuery() {
 
 export async function footerQuery() {
   const siteFooterQueryRes = await fetch(import.meta.env.WP_API_URL, {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `{
         menus(where: {location: FOOTER}) {
@@ -72,8 +72,8 @@ export async function footerQuery() {
 
 export async function blogPageQuery() {
   const siteBlogPageQueryRes = await fetch(import.meta.env.WP_API_URL, {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `{
         page(id: "/blog", idType: URI) {
@@ -118,8 +118,8 @@ export async function blogPageQuery() {
 
 export async function getNodeByURI(uri) {
   const response = await fetch(import.meta.env.WP_API_URL, {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `query GetNodeByURI($uri: String!) {
                 nodeByUri(uri: $uri) {
@@ -158,8 +158,8 @@ export async function getNodeByURI(uri) {
 
 export async function getAllUris() {
   const response = await fetch(import.meta.env.WP_API_URL, {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `query GetAllUris {
             terms {
@@ -176,6 +176,7 @@ export async function getAllUris() {
           `,
     }),
   });
+
   const { data } = await response.json();
   const uris = Object.values(data)
     .reduce(function (acc, currentValue) {
