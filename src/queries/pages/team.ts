@@ -18,6 +18,10 @@ export async function teamPageQuery() {
                     name
                     phoneNumber
                     position
+                    headshot {
+                      altText
+                      sourceUrl
+                    }
                   }
                 }
               }

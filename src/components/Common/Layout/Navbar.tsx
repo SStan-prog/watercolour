@@ -1,5 +1,5 @@
-import { useState } from "react";
-import MobileMenu from "./MobileMenu";
+import { useState } from 'react';
+import MobileMenu from './MobileMenu';
 
 interface Menu {
   menu: any;
@@ -7,14 +7,14 @@ interface Menu {
 
 const Navbar = ({ menu }: Menu) => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [btn, setBtn] = useState("MENU");
+  const [btn, setBtn] = useState('MENU');
   const toggle = () => {
     if (!openMenu) {
       setOpenMenu(!openMenu);
-      setBtn("CLOSE");
+      setBtn('CLOSE');
     } else if (openMenu) {
       setOpenMenu(!openMenu);
-      setBtn("MENU");
+      setBtn('MENU');
     }
   };
 
@@ -41,8 +41,8 @@ const Navbar = ({ menu }: Menu) => {
             return hasChildren ? (
               <li key={menuItem.label} className=" relative group py-5">
                 <div className=" flex">
-                  <span className="font-bold uppercase text-sm">
-                    {menuItem.label}{" "}
+                  <span className="font-bold uppercase text-sm  text-black-400">
+                    {menuItem.label}{' '}
                   </span>
                   <img
                     src="/icons/down-arrow.svg"
@@ -55,7 +55,7 @@ const Navbar = ({ menu }: Menu) => {
                     return (
                       <li
                         key={subItem.label}
-                        className="p-2 px-8 whitespace-nowrap font-bold uppercase text-sm"
+                        className="p-2 px-8 whitespace-nowrap font-bold uppercase text-sm  text-black-400"
                       >
                         <a href={subItem.node.uri}>{subItem.node.label}</a>
                       </li>

@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Partners/Header.astro';
+import Main from '../components/Partners/Main.astro';
+
+import { partnersPageQuery } from '../queries/pages/partners';
+const data = await partnersPageQuery();
+const seo = data.page.seo;
+const header = data.page.partners.header;
+const main = data.page.partners.main;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <Main main={main} />
+</Layout>

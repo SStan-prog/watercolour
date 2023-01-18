@@ -1,35 +1,84 @@
 ---
+import { Image } from '@astrojs/image/components';
 const { main } = Astro.props;
-console.log(main);
 
-interface teamMember {
+interface Headshot {
+  sourceUrl: string;
+  altText: string;
+}
+
+interface TeamMember {
   name: string;
   position: string;
   email: string;
   phoneNumber: string;
+  headshot: Headshot;
 }
 ---
 
 <section>
-  <div class="flex flex-wrap gap-10 py-20 px-5 justify-center w-full">
+  <div
+    class="flex flex-wrap gap-10 pt-20 pb-10 px-5 justify-center w-full max-w-[1400px] mx-auto"
+  >
     {
-      main.teamMember.map((member: teamMember) => {
-        return (
-          <div class="flex flex-col shadow-3xl p-3 rounded-lg  max-w-[300px] w-full">
-            <h2 class="text-2xl mb-2">{member.name}</h2>
-            <p class="mb-1">{member.position}</p>
-            <a class="font-bold text-red" href={`mailto:${member?.email}`}>
-              {member?.email}
-            </a>
-
-            {member.phoneNumber && (
-              <a
-                class="font-bold text-red "
-                href={`tel:${member?.phoneNumber.replace(/-/g, '')}`}
-              >
-                {member?.phoneNumber}
+      main.teamMember.map((member: TeamMember) => {
+        return member.headshot ? (
+          <div class="flex flex-col shadow-3xl  rounded-lg  max-w-[300px] w-full">
+            <Image
+              src={member?.headshot?.sourceUrl}
+              alt={member?.headshot?.altText}
+              width={300}
+              aspectRatio={3 / 3.8}
+              format="webp"
+              fit="cover"
+              position="center"
+              background="transparent"
+              class=" rounded-t-lg "
+            />
+            <div class=" p-3">
+              <h2 class="text-2xl mb-2">{member.name}</h2>
+              <p class="mb-1">{member.position}</p>
+              <a class="font-bold text-red" href={`mailto:${member?.email}`}>
+                {member?.email}
               </a>
-            )}
+
+              {member.phoneNumber && (
+                <a
+                  class="font-bold text-red "
+                  href={`tel:${member?.phoneNumber.replace(/-/g, '')}`}
+                >
+                  {member?.phoneNumber}
+                </a>
+              )}
+            </div>
+          </div>
+        ) : null;
+      })
+    }
+  </div>
+  <div
+    class="flex flex-wrap gap-10 pb-20 px-5 justify-center w-full max-w-[1400px] mx-auto"
+  >
+    {
+      main.teamMember.map((member: TeamMember) => {
+        return member.headshot ? null : (
+          <div class="flex flex-col shadow-3xl  rounded-lg  max-w-[300px] w-full">
+            <div class=" p-3">
+              <h2 class="text-2xl mb-2">{member.name}</h2>
+              <p class="mb-1">{member.position}</p>
+              <a class="font-bold text-red" href={`mailto:${member?.email}`}>
+                {member?.email}
+              </a>
+
+              {member.phoneNumber && (
+                <a
+                  class="font-bold text-red "
+                  href={`tel:${member?.phoneNumber.replace(/-/g, '')}`}
+                >
+                  {member?.phoneNumber}
+                </a>
+              )}
+            </div>
           </div>
         );
       })

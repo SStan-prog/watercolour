@@ -1,0 +1,52 @@
+---
+import Dropdown from './Dropdown/Dropdown';
+import { Image } from '@astrojs/image/components';
+const { main } = Astro.props;
+
+interface image {
+  sourceUrl: any;
+  altText: any;
+}
+
+interface Partner {
+  body: string;
+  heading: string;
+  link: string;
+  image: any;
+}
+---
+
+<section>
+  <div
+    class="max-w-[1300px] mx-auto pb-20 flex flex-wrap gap-20 py-10 sm:py-20 px-5 justify-center w-full"
+  >
+    {
+      main.partner.map((partner: Partner) => {
+        return (
+          <>
+            <div class=" max-w-[350px]">
+              <a href={partner.link} target="_blank" rel="noreferrer" class="">
+                <Image
+                  src={partner.image.sourceUrl}
+                  alt={partner.image.altText}
+                  class=" object-contain h-auto"
+                  width={350}
+                  aspectRatio={16 / 9}
+                  format="webp"
+                  fit="contain"
+                  position="center"
+                  background="transparent"
+                />
+              </a>
+              <Dropdown
+                client:load
+                heading={partner.heading}
+                body={partner.body}
+              />
+            </div>
+          </>
+        );
+      })
+    }
+  </div>
+</section>

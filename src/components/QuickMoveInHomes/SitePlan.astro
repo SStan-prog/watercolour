@@ -1,0 +1,24 @@
+---
+const { sitePlan } = Astro.props;
+---
+
+<section>
+  <div class="">
+    <div class="bg-green">
+      <h2
+        class="text-4xl sm:text-5xl p-8 font-heading font-bold text-white text-center"
+      >
+        {sitePlan.heading}
+      </h2>
+    </div>
+    <div class="p-5 flex flex-col items-center">
+      <div set:html={sitePlan.iframeCode} class="iframe" />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .iframe iframe {
+    height: 100%;
+  }
+</style>

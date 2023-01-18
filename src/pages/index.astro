@@ -1,8 +1,13 @@
 ---
-import Layout from "../layouts/PageLayout.astro";
-import FooterGallery from "../components/Common/FooterGallery/FooterGallery.astro";
+import Layout from '../layouts/PageLayout.astro';
+import NeighbourhoodFeatures from '../components/Home/NeighbourhoodFeatures.astro';
+import Testimonials from '../components/Home/Testimonials.astro';
+import MiddleCta from '../components/Home/MiddleCta.astro';
+import Videos from '../components/Home/Videos/Videos';
+import FooterGallery from '../components/Common/FooterGallery/FooterGallery.astro';
 
-import { homePageQuery } from "../queries/pages/home";
+import { homePageQuery } from '../queries/pages/home';
+
 const data = await homePageQuery();
 
 const seo = data.page.seo;
@@ -10,5 +15,9 @@ const gallery = data.themeGeneralSettings.footerGallery.gallery;
 ---
 
 <Layout seo={seo}>
+  <NeighbourhoodFeatures features={data.page.neighbourhood_features} />
+  <Testimonials testimonials={data.page.testimonials} />
+  <MiddleCta middleCta={data.page.home_middle_cta} />
+  <Videos videos={data.page.homeVideos} client:idle />
   <FooterGallery gallery={gallery} />
 </Layout>

@@ -1,7 +1,7 @@
 export async function faqPageQuery() {
   const siteFaqPageQueryRes = await fetch(import.meta.env.WP_API_URL, {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `{
           page(id: "/faq", idType: URI) {
@@ -9,6 +9,10 @@ export async function faqPageQuery() {
               main {
                 body
                 heading
+                questions {
+                  answer
+                  question
+                }
               }
               header {
                 heading

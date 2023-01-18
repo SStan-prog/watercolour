@@ -1,8 +1,6 @@
 ---
-
-import { Picture } from "@astrojs/image/components";
+import { Picture } from '@astrojs/image/components';
 const { gallery } = Astro.props;
-console.log(gallery);
 ---
 
 <section>
@@ -18,6 +16,7 @@ console.log(gallery);
               widths={[500]}
               sizes="500px"
               format="webp"
+              fit="cover"
               position="center"
             />
           </div>

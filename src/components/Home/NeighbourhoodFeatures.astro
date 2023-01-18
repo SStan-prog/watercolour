@@ -1,0 +1,59 @@
+---
+import { Image } from '@astrojs/image/components';
+interface FeatureImage {
+  sourceUrl: string;
+  altText: string;
+}
+
+interface Feature {
+  heading: string;
+  body: string;
+  icon: FeatureImage;
+}
+
+const { features } = Astro.props;
+---
+
+<section>
+  <div class="max-w-[1080px] py-20 px-5 mx-auto flex flex-col items-center">
+    <div class="mb-16 text-center">
+      <h2
+        class="text-3xl sm:text-5xl font-heading font-bold mb-4 text-black-200 sm:leading-relaxed"
+      >
+        {features.sectionHeading}
+      </h2>
+      <p class="text-3xl leading-relaxed">{features.body}</p>
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 w-full justify-items-center"
+    >
+      {
+        features.feature.map((feature: Feature) => {
+          return (
+            <div class="flex flex-col items-center max-w-[400px]">
+              <Image
+                src={feature.icon.sourceUrl}
+                alt={feature.icon.altText}
+                width={150}
+                aspectRatio={1 / 1}
+                format="webp"
+                fit="contain"
+                position="center"
+                background="transparent"
+                class="mb-5"
+              />
+              <h3 class="text-center font-heading font-bold mb-2 text-2xl text-black-200">
+                {feature.heading}
+              </h3>
+
+              <div
+                class="text-xl text-center [&>p>a]:text-red"
+                set:html={feature.body}
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
