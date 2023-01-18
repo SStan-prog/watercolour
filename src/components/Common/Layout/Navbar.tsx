@@ -19,7 +19,7 @@ const Navbar = ({ menu }: Menu) => {
   };
 
   return (
-    <nav className=" w-full max-w-6xl mx-auto px-5 sm:px-10 lg:px-0">
+    <nav className=" w-full max-w-6xl mx-auto px-5 sm:px-10 lg:px-0 ">
       <div className=" relative flex items-center ">
         <div className=" w-44  sm:w-60 md:w-80 ">
           <a href="/" className="w-full">

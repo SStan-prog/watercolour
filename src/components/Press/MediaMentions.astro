@@ -1,0 +1,43 @@
+---
+import { Image } from '@astrojs/image/components';
+const { mediaMentions } = Astro.props;
+
+const articles = mediaMentions.mediaMentions.reverse();
+---
+
+<section>
+  <div
+    class="py-20 px-5 max-w-[1000px] w-full flex flex-col items-center mx-auto"
+  >
+    <h2 class="font-heading font-bold text-3xl sm:text-5xl mb-16 text-center">
+      {mediaMentions.heading}
+    </h2>
+    <div class="flex flex-wrap gap-10 justify-center">
+      {
+        articles.map((article: any) => {
+          return (
+            <a href={article.articleLink} target="_blank" rel="nonreferrer">
+              <article class="border-grey-200 border max-w-[200px]">
+                <Image
+                  src={article.image.sourceUrl}
+                  alt={article.image.altText}
+                  width={200}
+                  aspectRatio={1}
+                  format="webp"
+                  fit="contain"
+                  position="center"
+                  background="transparent"
+                  class="border-grey-200 border-b"
+                />
+                <div class="p-2">
+                  <p class="text-base mb-1">{article.articleName}</p>
+                  <p class="text-sm text-grey-300">{article.date}</p>
+                </div>
+              </article>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

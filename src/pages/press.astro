@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Press/Header.astro';
+import Videos from '../components/Press/Videos';
+import MediaMentions from '../components/Press/MediaMentions.astro';
+
+import { pressPageQuery } from '../queries/pages/press';
+const data = await pressPageQuery();
+const seo = data.page.seo;
+---
+
+<Layout seo={seo}>
+  <Header header={data.page.press.header} />
+  <Videos videos={data.page.press.videos} client:idle />
+  <MediaMentions mediaMentions={data.page.press.mediaMentions} />
+</Layout>
