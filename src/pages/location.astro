@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Location/Header.astro';
+import Map from '../components/Location/Map.astro';
+import FooterGallery from '../components/Common/FooterGallery/FooterGallery.astro';
+
+import { locationPageQuery } from '../queries/pages/location';
+const data = await locationPageQuery();
+const seo = data.page.seo;
+const header = data.page.location.header;
+const map = data.page.location.map;
+
+const gallery = data.themeGeneralSettings.footerGallery.gallery;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <Map map={map} />
+  <FooterGallery gallery={gallery} />
+</Layout>

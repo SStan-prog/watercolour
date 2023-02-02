@@ -1,0 +1,35 @@
+---
+import { Image } from '@astrojs/image/components';
+const { map } = Astro.props;
+---
+
+<section>
+  <div class="mx-auto flex max-w-[1000px] flex-col items-center py-20">
+    <h2
+      class="mb-10 text-center font-heading text-3xl font-bold leading-relaxed sm:text-4xl sm:leading-relaxed"
+    >
+      {map.heading}
+    </h2>
+    <div
+      set:html={map.body}
+      class="text-center [&>p]:text-2xl [&>p]:leading-relaxed"
+    />
+  </div>
+  <img
+    src={map.image.sourceUrl}
+    alt={map.image.altText}
+    loading="lazy"
+    width="1000"
+    class="mx-auto mb-20"
+  />
+  <!-- <Image
+    src={map.image.sourceUrl}
+    alt={map.image.altText}
+    width={1000}
+    aspectRatio={4 / 3}
+    format="webp"
+    fit="contain"
+    background="transparent"
+    class="mx-auto mb-20"
+  /> -->
+</section>
