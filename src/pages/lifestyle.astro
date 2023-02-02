@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Lifestyle/Header.astro';
+import ContentRowOne from '../components/Lifestyle/ContentRowOne.astro';
+import Cards from '../components/Lifestyle/Cards.astro';
+import Cta from '../components/Lifestyle/Cta.astro';
+import FooterGallery from '../components/Common/FooterGallery/FooterGallery.astro';
+
+import { lifestylePageQuery } from '../queries/pages/lifestyle';
+const data = await lifestylePageQuery();
+const seo = data.page.seo;
+const header = data.page.lifestyle.header;
+const contentOne = data.page.lifestyle.contentRow;
+const cards = data.page.lifestyle.cards;
+const cta = data.page.lifestyle.finalCta;
+
+const gallery = data.themeGeneralSettings.footerGallery.gallery;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <ContentRowOne content={contentOne} />
+  <Cards cards={cards} />
+  <Cta cta={cta} />
+  <FooterGallery gallery={gallery} />
+</Layout>

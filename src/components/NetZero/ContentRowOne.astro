@@ -1,0 +1,41 @@
+---
+import { Image } from '@astrojs/image/components';
+const { content } = Astro.props;
+---
+
+<section>
+  <div
+    class="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-10 py-20 px-5 md:grid-cols-2 md:gap-20"
+  >
+    <div class="">
+      <h2 class="mb-5 text-2xl">{content.topRow.heading}</h2>
+      <div
+        class="[&>p]:mb-2 [&>p]:leading-loose"
+        set:html={content.topRow.body}
+      />
+    </div>
+    <div class="flex flex-col items-center">
+      <Image
+        src={content.topRow.logo.sourceUrl}
+        alt={content.topRow.logo.altText}
+        width={275}
+        height={83}
+        format="webp"
+        fit="contain"
+        position="center"
+        background="transparent"
+        class="mb-5"
+      />
+      <Image
+        src={content.topRow.image.sourceUrl}
+        alt={content.topRow.logo.altText}
+        width={500}
+        aspectRatio={4 / 3}
+        format="webp"
+        fit="cover"
+        position="center"
+        background="transparent"
+      />
+    </div>
+  </div>
+</section>

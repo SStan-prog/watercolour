@@ -1,0 +1,56 @@
+---
+import { Image } from '@astrojs/image/components';
+const { resources } = Astro.props;
+
+console.log(resources);
+---
+
+<section>
+  <div class="flex flex-col items-center">
+    <div class="w-full bg-green">
+      <h2 class="p-8 text-center text-2xl text-white sm:text-3xl">
+        {resources.heading}
+      </h2>
+    </div>
+    <div
+      class="mx-auto grid w-full max-w-[1200px] grid-cols-1 content-center gap-20 px-5 pt-10 pb-20 lg:grid-cols-2"
+    >
+      {
+        resources.resources.map((r: any) => {
+          if (r.videoEmbedLink) {
+            return (
+              <div class="flex  w-full flex-col items-center">
+                <h3 class="mb-5 text-center text-2xl">{r.heading}</h3>
+                <iframe
+                  src={r.videoEmbedLink}
+                  frameborder="0"
+                  loading="lazy"
+                  class=" aspect-video w-full"
+                />
+              </div>
+            );
+          } else {
+            return (
+              <div class="flex w-full flex-col items-center">
+                <h3 class="mb-5 text-center text-2xl">{r.heading}</h3>
+                <a href={r.link} target="_blank" rel="noreferrer">
+                  <Image
+                    src={r.image.sourceUrl}
+                    alt={r.image.altText}
+                    width={400}
+                    aspectRatio={16 / 9}
+                    format="webp"
+                    fit="contain"
+                    position="center"
+                    background="transparent"
+                    class="mb-5"
+                  />
+                </a>
+              </div>
+            );
+          }
+        })
+      }
+    </div>
+  </div>
+</section>

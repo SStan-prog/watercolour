@@ -78,7 +78,7 @@ const Navbar = ({ menu }: Menu) => {
         </ul>
 
         <button
-          className="lg:hidden w-24 ml-auto px-4 py-2 border-2 border-red text-red cursor-pointer"
+          className="lg:hidden w-24 ml-auto px-4 py-1 sm:py-2 border-2 border-red text-red cursor-pointer"
           onClick={toggle}
         >
           {btn}

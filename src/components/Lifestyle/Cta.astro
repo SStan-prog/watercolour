@@ -1,0 +1,16 @@
+---
+import Button from '../Buttons/Button.astro';
+const { cta } = Astro.props;
+---
+
+<section>
+  <div
+    class="mx-auto flex w-full max-w-[800px] flex-col items-center px-5 pb-20"
+  >
+    <h2 class="mb-4 text-center font-heading text-4xl font-bold leading-normal">
+      {cta.heading}
+    </h2>
+    <p class="mb-5 text-center text-2xl">{cta.subheading}</p>
+    <Button text={cta.buttonText} href={cta.buttonLink} large blank />
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import { Image } from '@astrojs/image/components';
+const { cards } = Astro.props;
+console.log(cards);
+---
+
+<section>
+  <div class="flex flex-col items-center">
+    <div
+      class="mx-auto flex flex-col flex-wrap justify-center gap-12 px-5 py-20 xl:flex-row"
+    >
+      {
+        cards.card.map((c: any) => {
+          return (
+            <div class=" flex w-full max-w-[550px] flex-col items-center xl:max-w-[340px]">
+              <h2 class="font-heading max-w-[550px] px-1 text-center text-2xl font-bold leading-relaxed sm:text-3xl sm:leading-relaxed ">
+                {c.heading}
+              </h2>
+              <Image
+                src={c.image.sourceUrl}
+                alt={c.image.altText}
+                width={550}
+                aspectRatio={4 / 3}
+                format="webp"
+                fit="contain"
+                background="transparent"
+                class="mx-auto "
+              />
+              <div class=" [&>p>a]:text-red [&>p]:mb-2" set:html={c.body} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

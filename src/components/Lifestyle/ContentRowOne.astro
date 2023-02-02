@@ -1,0 +1,26 @@
+---
+import Button from '../Buttons/Button.astro';
+const { content } = Astro.props;
+---
+
+<section>
+  <div
+    class="mx-auto flex w-full max-w-[1000px] flex-col items-center px-5 py-10 sm:p-20"
+  >
+    <h2
+      class="mb-5 text-center font-heading text-3xl font-bold sm:mb-10 sm:text-5xl sm:leading-normal"
+    >
+      {content.heading}
+    </h2>
+    <div class="mb-10 [&>p]:mb-2" set:html={content.main} />
+    <div
+      class="flex w-full max-w-[600px] flex-wrap justify-around gap-x-20 gap-y-5"
+    >
+      {
+        content.buttons.map((b: any) => {
+          return <Button large href={b.buttonLink} text={b.buttonText} />;
+        })
+      }
+    </div>
+  </div>
+</section>

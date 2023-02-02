@@ -1,0 +1,51 @@
+---
+import { Image } from '@astrojs/image/components';
+const { testimonials } = Astro.props;
+---
+
+<section>
+  <div class="flex flex-col items-center">
+    <div class="w-full bg-green">
+      <h2 class="p-8 text-center text-2xl text-white sm:text-3xl">
+        {testimonials.heading}
+      </h2>
+    </div>
+    <div class="mx-auto flex flex-wrap justify-center gap-10 py-20 px-5">
+      {
+        testimonials.testimonials.map((t: any) => {
+          return (
+            <div class="shadow-3xl flex w-full max-w-[250px] flex-col rounded-lg">
+              <Image
+                src={t.headshot.sourceUrl}
+                alt={t.headshot.altText}
+                width={250}
+                aspectRatio={4 / 3.5}
+                format="webp"
+                fit="cover"
+                position="north"
+                background="transparent"
+                class="border-b-grey-300 mb-5 rounded-t-lg border-b-8"
+              />
+              <div class="relative flex h-full flex-col p-2">
+                <div class="bg-red absolute -top-11 rounded-full p-3">
+                  <img
+                    src="/icons/quote.svg"
+                    alt="quote icon"
+                    class="w-[14px]"
+                  />
+                </div>
+                <p class="mb-5 text-sm font-medium">{t.body}</p>
+                <div class="mt-auto">
+                  <h3 class="font-heading mb-2 mt-auto font-bold">{t.name}</h3>
+                  <p class="text-grey-400  justify-end text-sm font-medium">
+                    {t.company}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

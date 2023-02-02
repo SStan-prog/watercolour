@@ -1,0 +1,38 @@
+---
+import { Image } from '@astrojs/image/components';
+const { technologies } = Astro.props;
+---
+
+<section>
+  <div class="flex flex-col items-center">
+    <div class="w-full bg-green">
+      <h2 class="p-8 text-center text-2xl text-white sm:text-3xl">
+        {technologies.heading}
+      </h2>
+    </div>
+    <div
+      class="mx-auto flex max-w-[1200px] flex-wrap justify-center gap-10 px-5 pt-10 pb-20"
+    >
+      {
+        technologies.technologies.map((t: any) => {
+          return (
+            <div class="max-w-[300px]">
+              <Image
+                src={t.image.sourceUrl}
+                alt={t.image.altText}
+                width={250}
+                aspectRatio={4 / 3}
+                format="webp"
+                fit="contain"
+                background="transparent"
+                class="mx-auto"
+              />
+
+              <p class="text-center">{t.description}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

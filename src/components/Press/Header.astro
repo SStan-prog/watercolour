@@ -8,18 +8,18 @@ const pressInquiries = header.pressInquiries;
 ---
 
 <header>
-  <div class="py-20 px-5 flex flex-col items-center gap-10">
+  <div class="flex flex-col items-center gap-10 py-20 px-5">
     <div
-      class="w-full max-w-[500px] md:max-w-[1000px] shadow-3xl grid grid-col-1 md:grid-cols-2 items-center rounded-xl"
+      class="grid-col-1 grid w-full max-w-[500px] items-center rounded-xl shadow-3xl md:max-w-[1000px] md:grid-cols-2"
     >
-      <div class="p-4 sm:p-8 flex flex-col items-center">
+      <div class="flex flex-col items-center p-6 sm:p-8">
         <h1
-          class="font-bold font-heading text-3xl sm:text-5xl text-black-300 text-center mb-4"
+          class="mb-4 text-center font-heading text-3xl font-bold text-black-300 sm:text-5xl"
         >
           {pressKit.heading}
         </h1>
         <div
-          class="text-center text-xl mb-5 sm:mb-10 [&>p>a]:text-red leading-relaxed"
+          class="mb-5 text-center text-xl leading-relaxed sm:mb-10 [&>p>a]:text-red"
           set:html={pressKit.body}
         />
         <Button
@@ -29,48 +29,45 @@ const pressInquiries = header.pressInquiries;
           large
         />
       </div>
-      <div class="h-full">
-        <Image
-          src={pressKit.image.sourceUrl}
-          alt={pressKit.image.altText}
-          width={500}
-          aspectRatio={4 / 3}
-          format="webp"
-          fit="cover"
-          position="center"
-          background="transparent"
-          class="rounded-b-xl md:rounded-r-xl md:rounded-bl-none h-full object-cover w-full"
-        />
-      </div>
+
+      <Image
+        src={pressKit.image.sourceUrl}
+        alt={pressKit.image.altText}
+        width={500}
+        aspectRatio={4 / 3.5}
+        format="webp"
+        fit="cover"
+        position="center"
+        background="transparent"
+        class="rounded-b-xl md:rounded-r-xl md:rounded-bl-none w-full object-cover"
+      />
     </div>
 
     <div
-      class="w-full max-w-[500px] md:max-w-[1000px] shadow-3xl grid grid-col-1 md:grid-cols-2 items-center rounded-xl"
+      class="grid-col-1 grid w-full max-w-[500px] items-center rounded-xl shadow-3xl md:max-w-[1000px] md:grid-cols-2"
     >
-      <div class="p-4 sm:p-8 flex flex-col items-center">
+      <div class="flex flex-col items-center p-6 sm:p-8">
         <h1
-          class="font-bold font-heading text-3xl sm:text-5xl text-black-300 text-center mb-4"
+          class="mb-4 text-center font-heading text-3xl font-bold text-black-300 sm:text-5xl"
         >
           {pressInquiries.heading}
         </h1>
         <div
-          class="text-center text-xl [&>p>a]:text-red leading-relaxed [&>p>a]:break-all inline-block [&>p>a]:text-base [&>p>a]:sm:text-xl"
+          class="inline-block text-center text-xl leading-relaxed [&>p>a]:break-all [&>p>a]:text-base [&>p>a]:text-red [&>p>a]:sm:text-xl"
           set:html={pressInquiries.body}
         />
       </div>
-      <div class="h-full">
-        <Image
-          src={pressInquiries.image.sourceUrl}
-          alt={pressInquiries.image.altText}
-          width={500}
-          aspectRatio={16 / 9}
-          format="webp"
-          fit="contain"
-          position="center"
-          background="transparent"
-          class="rounded-b-xl md:rounded-r-xl md:rounded-bl-none h-full object-contain w-full"
-        />
-      </div>
+
+      <Image
+        src={pressInquiries.image.sourceUrl}
+        alt={pressInquiries.image.altText}
+        width={500}
+        aspectRatio={16 / 9}
+        format="webp"
+        fit="contain"
+        position="center"
+        background="transparent"
+      />
     </div>
   </div>
 </header>

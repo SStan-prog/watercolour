@@ -1,0 +1,27 @@
+---
+const { header } = Astro.props;
+---
+
+<header>
+  <div
+    style={`background-image:  linear-gradient(
+    90deg,
+    rgba(5, 5, 5, 0.25) 0%,
+    rgba(0, 0, 0, 0.25) 100%
+  ), url('${header.backgroundImage.sourceUrl}')`}
+    class="bg-cover bg-center pb-[150px] pt-[100px] lg:pb-[300px]"
+  >
+    <div class="mx-auto flex flex-col p-5 md:p-20">
+      <h1
+        class="text-shadow-lg font-heading text-5xl font-bold text-white drop-shadow-md md:text-6xl"
+      >
+        {header.heading}
+      </h1>
+      <h2
+        class="text-shadow-lg text-2xl leading-relaxed text-white drop-shadow-md sm:text-3xl sm:leading-relaxed"
+      >
+        {header.subheading}
+      </h2>
+    </div>
+  </div>
+</header>

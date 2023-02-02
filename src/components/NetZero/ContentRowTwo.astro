@@ -1,0 +1,41 @@
+---
+import Button from '../Buttons/Button.astro';
+import { Image } from '@astrojs/image/components';
+const { content } = Astro.props;
+---
+
+<section>
+  <div class="mx-auto">
+    <div class="w-full bg-green">
+      <h2 class="p-8 text-center text-2xl text-white sm:text-3xl">
+        {content.heading}
+      </h2>
+    </div>
+    <div
+      class="mx-auto grid w-full max-w-[1000px] grid-cols-1 gap-10 py-20 px-5 md:grid-cols-2 md:gap-20"
+    >
+      <div class="flex flex-col items-center">
+        <Image
+          src={content.image.sourceUrl}
+          alt={content.image.altText}
+          width={400}
+          aspectRatio={3 / 5}
+          format="webp"
+          fit="cover"
+          position="center"
+          background="transparent"
+          class="mb-5"
+        />
+      </div>
+      <div class="">
+        <div
+          class="[&>p]:mb-2 [&>p]:text-lg [&>p]:leading-loose"
+          set:html={content.body}
+        />
+        <div class="mt-10 w-full">
+          <Button href={content.buttonLink} text={content.buttonText} large />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
