@@ -1,0 +1,28 @@
+---
+import Button from '../Buttons/Button.astro';
+const { main } = Astro.props;
+---
+
+<section class="bg-grey-200" id="visit">
+  <div class="mx-auto flex max-w-[1000px] flex-col items-center px-5 py-20">
+    <h2 class="mb-5 text-center font-heading text-3xl font-bold sm:text-5xl">
+      {main.heading}
+    </h2>
+    <p class="mb-10 text-center text-lg sm:text-xl">{main.subheading}</p>
+    <div
+      set:html={main.details}
+      class="mb-5 text-center [&>p]:mb-2 [&>h3]:mb-5 [&>h3]:font-heading [&>h3]:text-xl [&>h3]:font-bold [&>h3]:sm:text-3xl [&>p>strong>a]:text-red"
+    />
+    <Button text={main.buttonText} href={main.buttonLink} large blank />
+    <hr class="mt-10 mb-16 h-[1px] w-[80%] border-t border-grey-300" />
+    <div
+      class="mb-10 max-w-[600px] [&>p]:text-xl [&>p]:leading-loose"
+      set:html={main.aside}
+    />
+
+    <iframe
+      src="https://maps.googleapis.com/maps/api/staticmap?center=Watercolour%2C+Westport&zoom=15&scale=2&size=600x300&maptype=roadmap&format=png&key=AIzaSyCRBYODBvR-JnFxvynZSP59NrsjpncljCI"
+      frameborder="0"
+      class="aspect-video w-full"></iframe>
+  </div>
+</section>

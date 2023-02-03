@@ -1,0 +1,24 @@
+---
+const { header } = Astro.props;
+---
+
+<header>
+  <div
+    style={`background-image: url('${header.image.sourceUrl}'); padding: 150px 0`}
+    class="w-full bg-cover bg-center"
+  >
+  </div>
+  <div class="mx-auto max-w-[700px] py-20 px-5">
+    <h2 class="mb-10 font-heading text-5xl font-bold">{header.heading}</h2>
+    <div class="flex w-full flex-col justify-between gap-10 sm:flex-row">
+      <div
+        class="[&>p]:text-lg [&>p>a]:text-red [&>p>u>a]:text-red"
+        set:html={header.contactInfo}
+      />
+      <div
+        class="[&>p]:text-lg [&>p]:text-black-400"
+        set:html={header.address}
+      />
+    </div>
+  </div>
+</header>

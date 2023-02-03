@@ -1,0 +1,44 @@
+---
+import Button from '../Buttons/Button.astro';
+import { Image } from '@astrojs/image/components';
+const { accomodations } = Astro.props;
+---
+
+<section>
+  <div class="mx-auto max-w-[1000px] px-5 py-20">
+    <h2 class="mb-10 text-center font-heading text-3xl font-bold sm:text-5xl">
+      {accomodations.heading}
+    </h2>
+    <div class="flex flex-col items-center gap-20">
+      {
+        accomodations.place.map((p: any) => {
+          return (
+            <div class=" grid max-w-[500px] grid-cols-1 items-center gap-10 md:max-w-[100%] md:grid-cols-2">
+              <div>
+                <Image
+                  src={p.image.sourceUrl}
+                  alt={p.image.altText}
+                  width={500}
+                  aspectRatio={16 / 9}
+                  format="webp"
+                  fit="cover"
+                  background="transparent"
+                  class="mx-auto "
+                />
+              </div>
+              <div class="">
+                <h3 class="mb-2 text-3xl">{p.name}</h3>
+                <div class="[&>p>a]:text-red mb-10 " set:html={p.description} />
+                <Button text={p.buttonText} href={p.buttonLink} large blank />
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+    <div
+      class="mt-20 [&>p]:text-2xl [&>p>a]:text-red"
+      set:html={accomodations.optionalBooking}
+    />
+  </div>
+</section>

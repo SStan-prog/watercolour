@@ -1,0 +1,46 @@
+---
+import { Image } from '@astrojs/image/components';
+const { main } = Astro.props;
+console.log(main);
+---
+
+<div class="mx-auto flex max-w-[1200px] flex-col gap-20 py-20 px-5 md:gap-32">
+  {
+    main.map((section: any, i: any) => {
+      return (
+        <section>
+          <div class=" flex flex-col gap-10  md:grid md:grid-cols-2 md:gap-20">
+            <div
+              class={`${
+                i % 2 == 0 ? 'col-start-1' : 'col-start-2'
+              } row-[1] mt-5 `}
+            >
+              <h2 class="font-heading mb-2 text-2xl font-bold sm:text-3xl">
+                {section.heading}
+              </h2>
+              <span class="font-heading mb-5 block text-2xl font-bold text-[#118c4f] sm:text-3xl">
+                {section?.incentiveAmount}
+              </span>
+              <div
+                class="[&>p]:mb-2 [&>p]:text-lg [&>p]:sm:text-xl"
+                set:html={section.body}
+              />
+            </div>
+            <div class=" md:row-[1] ">
+              <Image
+                src={section.image.sourceUrl}
+                alt={section.image.altText}
+                width={550}
+                aspectRatio={4 / 3}
+                format="webp"
+                fit="contain"
+                background="transparent"
+                class="mx-auto "
+              />
+            </div>
+          </div>
+        </section>
+      );
+    })
+  }
+</div>

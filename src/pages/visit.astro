@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Visit/Header.astro';
+import Main from '../components/Visit/Main.astro';
+import Accomodations from '../components/Visit/Accomodations.astro';
+
+import { visitPageQuery } from '../queries/pages/visit';
+const data = await visitPageQuery();
+const seo = data.page.seo;
+const header = data.page.visit.header;
+const visit = data.page.visit.visit;
+const accomodations = data.page.visit.accommodations;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <Main main={visit} />
+  <Accomodations accomodations={accomodations} />
+</Layout>

@@ -1,0 +1,22 @@
+---
+const { header } = Astro.props;
+---
+
+<header>
+  <div
+    style={`background-image:  linear-gradient(
+      90deg,
+      rgba(5, 5, 5, 0.3) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ), url('${header.image.sourceUrl}'); background-position: 50% 30%;`}
+    class="bg-cover"
+  >
+    <div class="mx-auto flex h-full max-w-[1600px] items-center py-40 px-5">
+      <h1
+        class="text-shadow-lg w-full text-center font-heading text-5xl font-bold leading-relaxed text-white drop-shadow-md sm:text-6xl sm:leading-relaxed"
+      >
+        {header.heading}
+      </h1>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Incentives/Header.astro';
+import Main from '../components/Incentives/Main.astro';
+
+import { incentivesPageQuery } from '../queries/pages/incentives-program';
+const data = await incentivesPageQuery();
+const seo = data.page.seo;
+const header = data.page.incentives.header;
+const main = data.page.incentives.contentBlock;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <Main main={main} />
+</Layout>
