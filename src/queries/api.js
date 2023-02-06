@@ -126,6 +126,14 @@ export async function getNodeByURI(uri) {
                   __typename
                   isContentNode
                   isTermNode
+                  ... on Model {
+                    id
+                    title
+                    seo {
+                      metaDesc
+                      title
+                    }
+                  }
                   ... on Post {
                     id
                     title
@@ -143,8 +151,8 @@ export async function getNodeByURI(uri) {
                         altText
                       }
                     }
-                  }
-                }
+                  } 
+                } 
               }
             `,
       variables: {
@@ -168,6 +176,11 @@ export async function getAllUris() {
               }
             }
             posts(first: 100) {
+              nodes {
+                uri
+              }
+            }
+          models(first: 100) {
               nodes {
                 uri
               }

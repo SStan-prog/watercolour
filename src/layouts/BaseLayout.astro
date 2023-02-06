@@ -23,7 +23,7 @@ const { title, seo } = Astro.props;
   </head>
   <body>
     <slot />
-    <style is:global>
+    <style lang="scss" is:global>
       :root {
         /* FONTS */
 
@@ -50,9 +50,13 @@ const { title, seo } = Astro.props;
       body {
         background-color: var(--color-offwhite);
         font-family: var(--font-body);
-        color: #666;
+        color: #2d2d2d;
 
         line-height: 1.6;
+      }
+
+      a {
+        color: var(--color-red);
       }
 
       .content-block p {
@@ -140,6 +144,49 @@ const { title, seo } = Astro.props;
         .swiper-button-prev,
         .swiper-button-next {
           display: none !important;
+        }
+      }
+
+      /* MODEL SLIDER */
+
+      .model-slider {
+        /* SWIPER OVERRIDE */
+
+        .swiper-pagination {
+        }
+
+        .swiper-pagination-bullet {
+          padding: 0.5rem;
+          background-color: rgba(0, 0, 0, 0.8) !important;
+
+          @media only screen and (max-width: 600px) {
+            padding: 0.35rem;
+          }
+        }
+
+        .swiper-pagination-bullet-active {
+          background-color: rgba(0, 0, 0, 0.8) !important;
+        }
+      }
+
+      /* MODAL MODEL SLIDER */
+
+      .modal-model-slider {
+        .swiper-button-prev,
+        .swiper-button-next {
+          transition: transform 0.4s ease;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          transform: translateX(0) !important;
+        }
+
+        @media only screen and (max-width: 600px) {
+          .swiper-button-prev,
+          .swiper-button-next {
+            display: block !important;
+          }
         }
       }
     </style>

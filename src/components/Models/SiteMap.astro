@@ -1,0 +1,22 @@
+---
+const { siteMap } = Astro.props;
+---
+
+<section>
+  <div class="mx-auto flex flex-col items-center">
+    <div class="w-full bg-green">
+      <h2
+        class="p-8 text-center font-heading text-2xl font-bold text-white sm:text-3xl"
+      >
+        {siteMap.heading}
+      </h2>
+    </div>
+    <div class="w-full max-w-[1200px] px-5 pt-10 pb-20">
+      <iframe
+        src={siteMap.iframeUrl}
+        title="Site Map"
+        loading="lazy"
+        class="aspect-video w-full"></iframe>
+    </div>
+  </div>
+</section>

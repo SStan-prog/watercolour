@@ -1,0 +1,38 @@
+---
+import { Image } from '@astrojs/image/components';
+const { content } = Astro.props;
+import OutlinedButton from '../Buttons/OutlinedButton.astro';
+---
+
+<section>
+  <div
+    class="mx-auto grid max-w-[550px] grid-cols-1 gap-20 px-5 py-20 md:max-w-[1100px] md:grid-cols-2"
+  >
+    <div class="">
+      <div class="mb-10 [&>p]:mb-2 [&>p]:text-lg" set:html={content.body} />
+      <div
+        class="mx-auto grid max-w-[300px] grid-cols-1 gap-5 sm:max-w-full sm:grid-cols-2"
+      >
+        {
+          content.buttons.map((b: any) => {
+            return (
+              <OutlinedButton text={b.buttonText} href={b.buttonLink} large />
+            );
+          })
+        }
+      </div>
+    </div>
+    <div class="">
+      <Image
+        src={content.image.sourceUrl}
+        alt={content.image.altText}
+        width={550}
+        aspectRatio={4 / 3}
+        format="webp"
+        fit="cover"
+        background="transparent"
+        class="mx-auto"
+      />
+    </div>
+  </div>
+</section>

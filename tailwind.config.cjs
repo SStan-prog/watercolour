@@ -24,6 +24,9 @@ module.exports = {
       red: '#b44141',
       green: '#557d56',
       'green-light': '#b5c3a7',
+      yellow: '#e4ae35',
+      blueDark: '#144e62',
+      blueLight: '#a5d0ef',
     },
     fontFamily: {
       heading: "'Amethysta', serif",

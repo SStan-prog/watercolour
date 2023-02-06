@@ -1,0 +1,55 @@
+---
+const { bathrooms, beds, lotArea, squareFootage } = Astro.props;
+---
+
+<div
+  class="mx-auto mb-20 grid w-full grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-0"
+>
+  <div class="flex flex-col gap-5">
+    <div class="spec">
+      <img src="/icons/bed.svg" alt="bed icon" class="w-[34px]" /><p
+        class="ml-4 text-2xl text-black-400"
+      >
+        {beds} Bedrooms
+      </p>
+    </div>
+    <div class="spec">
+      <img src="/icons/bath.svg" alt="bathroom icon" class="w-[32px]" /><p
+        class="ml-4 text-2xl text-black-400"
+      >
+        {bathrooms} Baths
+      </p>
+    </div>
+    <div class="spec">
+      <img src="/icons/tree.svg" alt="tree icon" class="w-[24px]" /><p
+        class="ml-4 text-2xl text-black-400"
+      >
+        {lotArea} ft Lot
+      </p>
+    </div>
+  </div>
+  <div class="flex flex-col gap-5">
+    <div class="spec">
+      <img src="/icons/home.svg" alt="home icon" class="w-[34px]" /><p
+        class="ml-4 text-2xl text-black-400"
+      >
+        {squareFootage} Sq. Ft.
+      </p>
+    </div>
+    <div class="spec">
+      <img src="/icons/earth.svg" alt="Earth icon" class="w-[32px]" /><p
+        class="ml-4 text-2xl text-black-400"
+      >
+        Net Zero Ready
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .spec {
+    display: grid;
+    grid-template-columns: 36px auto;
+    align-items: center;
+  }
+</style>

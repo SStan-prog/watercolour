@@ -1,0 +1,35 @@
+---
+const { href, text, large, blank } = Astro.props;
+---
+
+{
+  blank ? (
+    <a
+      target="_blank"
+      rel="noreferrer"
+      href={href}
+      class={`border-red text-red hover:bg-red  cursor-pointer rounded-full border-4 bg-transparent text-center font-bold transition duration-100 ease-linear hover:text-white
+  ${
+    large
+      ? ' px-4 py-2 text-base sm:px-3 sm:py-2 sm:text-lg'
+      : ' px-2 py-1 text-sm'
+  }
+  `}
+    >
+      {text}
+    </a>
+  ) : (
+    <a
+      href={href}
+      class={`border-red text-red hover:bg-red cursor-pointer  rounded-full border-4  bg-transparent text-center font-bold transition duration-100 ease-linear hover:text-white 
+  ${
+    large
+      ? ' px-4 py-2 text-base sm:px-3 sm:py-2 sm:text-lg'
+      : ' px-2 py-1 text-sm'
+  }
+  `}
+    >
+      {text}
+    </a>
+  )
+}

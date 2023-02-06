@@ -1,0 +1,17 @@
+---
+import Main from '../Model/Main.astro';
+import FooterGallery from '../Common/FooterGallery/FooterGallery.astro';
+
+const { model, gallery } = Astro.props;
+---
+
+<div class="">
+  <Main model={model.models.modelDetails} />
+
+  {
+    model.models.loftedOption && (
+      <Main model={model.models.loftedModelDetails} />
+    )
+  }
+  <FooterGallery gallery={gallery} />
+</div>

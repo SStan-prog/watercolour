@@ -24,7 +24,9 @@ const { menu } = Astro.props;
               {menuItem.childItems.edges.map((subItem: any) => {
                 return (
                   <li class="text-md mb-1 font-bold text-white">
-                    <a href={subItem.node.uri}>{subItem.node.label}</a>
+                    <a class="text-white" href={subItem.node.uri}>
+                      {subItem.node.label}
+                    </a>
                   </li>
                 );
               })}

@@ -1,0 +1,31 @@
+---
+import {
+  getModelNodeByURI,
+  getAllModelSlugs,
+} from '../../queries/models/models';
+
+const { uri } = Astro.params;
+
+export async function getStaticPaths() {
+  const data = await getAllModelSlugs();
+
+  const gallery = data.themeGeneralSettings.footerGallery.gallery;
+  return data.models.nodes.map((model: any) => {
+    return {
+      params: { slug: model.slug },
+      props: { model, gallery },
+    };
+  });
+}
+
+const { model, gallery } = Astro.props;
+
+import Layout from '../../layouts/PageLayout.astro';
+import Model from '../../components/Templates/Model.astro';
+
+const seo = model.seo;
+---
+
+<Layout seo={seo}>
+  <Model model={model} gallery={gallery} />
+</Layout>
