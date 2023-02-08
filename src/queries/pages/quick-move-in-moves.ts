@@ -26,7 +26,7 @@ export async function quickMoveInHomesPageQuery() {
                   buttonLink
                   buttonText
                   heading
-                  subHeading
+
                 }
                 homeBuyersJourney {
                   heading
@@ -41,7 +41,7 @@ export async function quickMoveInHomesPageQuery() {
                 }
                 sitePlan {
                   heading
-                  iframeCode
+                  iframeurl
                 }
               }
             }

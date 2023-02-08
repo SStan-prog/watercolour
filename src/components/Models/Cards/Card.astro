@@ -1,0 +1,63 @@
+---
+import { Image } from '@astrojs/image/components';
+const { model } = Astro.props;
+---
+
+<div
+  class="rounded-b-2xl shadow-xl transition-all duration-300 hover:scale-[.98] hover:shadow-none"
+>
+  <div class="relative">
+    <Image
+      src={model.node.featuredImage.node.sourceUrl}
+      alt={model.node.featuredImage.node.altText}
+      width={600}
+      aspectRatio={4 / 2.8}
+      format="webp"
+      fit="cover"
+      background="transparent"
+      class="rounded-t-2xl"
+    />
+    <div class="absolute bottom-2 px-2">
+      <h3 class="font-heading text-xl font-bold text-white sm:text-2xl">
+        {model.node.models.modelDetails.name.replace('The', '')}
+        {model.node.models.loftedOption && <span>(+optional loft)</span>}
+      </h3>
+    </div>
+  </div>
+  <div
+    class="flex flex-col rounded-b-2xl border border-t-0 border-grey-300 text-black-300"
+  >
+    <div class="border-b border-grey-300 p-4 text-xl font-bold sm:text-2xl">
+      {model.node.models.modelDetails.price}
+    </div>
+    <div class="grid grid-cols-2 text-sm sm:text-base">
+      <div class="spec border-b border-r border-grey-300 p-4">
+        <img src="/icons/bed.svg" alt="bed icon" />
+        <p>{model.node.models.modelDetails.beds} Bed Rm</p>
+      </div>
+      <div class="spec border-b border-grey-300 p-4">
+        <img src="/icons/bath.svg" alt="bath icon" />
+        <p>{model.node.models.modelDetails.bathrooms} Baths</p>
+      </div>
+      <div class="spec border-r border-grey-300 p-4">
+        <img src="/icons/home.svg" alt="home icon" />
+        <p>
+          {' '}
+          {model.node.models.modelDetails.squareFootage} Sq. Ft
+        </p>
+      </div>
+      <div class="spec border-grey-300 p-4">
+        <img src="/icons/tree.svg" alt="tree icon" />
+        <p>{model.node.models.modelDetails.lotArea} Ft Lot</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .spec {
+    display: grid;
+    grid-template-columns: 36px auto;
+    align-items: center;
+  }
+</style>

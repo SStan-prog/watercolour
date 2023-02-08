@@ -1,0 +1,27 @@
+---
+import SoldCard from './SoldCard.astro';
+const { soldHomes } = Astro.props;
+---
+
+<div class="section bg-grey-100">
+  <div class="mx-auto flex flex-col items-center">
+    <div class="w-full bg-green">
+      <h2
+        class="p-8 text-center font-heading text-2xl font-bold text-white sm:text-3xl"
+      >
+        Owner Occupied
+      </h2>
+    </div>
+    <div class="flex w-full max-w-[1200px] flex-wrap gap-10 py-20 px-5">
+      {
+        soldHomes.mrHome.edges.map((model: any, i: number) => {
+          return (
+            <div>
+              <SoldCard soldHome={model} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>

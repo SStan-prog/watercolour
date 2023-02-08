@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Inspirations/Header.astro';
+import Section from '../components/Inspirations/Section.astro';
+
+import { inspirationsPageQuery } from '../queries/pages/inspirations';
+const data = await inspirationsPageQuery();
+const seo = data.page.seo;
+const header = data.page.inspirations.header;
+const sections = data.page.inspirations.section;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+
+  {
+    sections.map((s: any) => {
+      return <Section section={s} />;
+    })
+  }
+</Layout>

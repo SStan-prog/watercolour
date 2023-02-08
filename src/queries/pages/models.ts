@@ -58,10 +58,13 @@ export async function modelsPageQuery() {
                   iframeUrl
                 }
                 standardFeatures {
-                  buttonLink
+                  buttonLink {
+                    mediaItemUrl
+                  }
                   buttonText
                   heading
                   features {
+                    details
                     name
                     image {
                       altText

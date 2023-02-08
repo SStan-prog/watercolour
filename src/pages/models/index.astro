@@ -4,17 +4,25 @@ import Header from '../../components/Models/Header.astro';
 import ContenRow from '../../components/Models/ContenRow.astro';
 import SiteMap from '../../components/Models/SiteMap.astro';
 import PurchaseSteps from '../../components/Models/purchaseSteps.astro';
-import VirtualTours from '../../components/Models/VirtualTours.svelte';
+import Bungalows from '../../components/Models/Cards/Bungalows.astro';
+import VirtualTours from '../../components/Models/VirtualTours/VirtualTours.svelte';
+import StandardFeatures from '../../components/Models/StandardFeatures/StandardFeatures.svelte';
+import MortgagePartner from '../../components/Models/MortgagePartner.astro';
 
 import { modelsPageQuery } from '../../queries/pages/models';
-const data = await modelsPageQuery();
-const seo = data.page.seo;
+import { bungalowsQuery } from '../../queries/models/bungalows';
 
+const data = await modelsPageQuery();
+const bungalows = await bungalowsQuery();
+
+const seo = data.page.seo;
 const header = data.page.models_page.header;
 const content = data.page.models_page.contentRow;
 const siteMap = data.page.models_page.sitemap;
 const purchaseSteps = data.page.models_page.purchaseSteps;
 const virtualTours = data.page.models_page.virtualTours;
+const standardFeatures = data.page.models_page.standardFeatures;
+const mortgageProvider = data.page.models_page.mortgagePartner;
 ---
 
 <Layout seo={seo}>
@@ -22,5 +30,8 @@ const virtualTours = data.page.models_page.virtualTours;
   <ContenRow content={content} />
   <SiteMap siteMap={siteMap} />
   <PurchaseSteps purchaseSteps={purchaseSteps} />
-  <VirtualTours virtualTours={virtualTours} />
+  <Bungalows bungalows={bungalows} />
+  <VirtualTours virtualTours={virtualTours} client:idle />
+  <StandardFeatures standardFeatures={standardFeatures} client:idle />
+  <MortgagePartner mortgageProvider={mortgageProvider} />
 </Layout>

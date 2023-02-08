@@ -1,0 +1,14 @@
+---
+const { header } = Astro.props;
+---
+
+<header>
+  <div class="mx-auto max-w-[800px] py-20">
+    <h1
+      class="mb-10 text-center font-heading text-3xl font-bold leading-relaxed sm:text-5xl sm:leading-relaxed"
+    >
+      {header.heading}
+    </h1>
+    <div set:html={header.body} class="text-lg" />
+  </div>
+</header>

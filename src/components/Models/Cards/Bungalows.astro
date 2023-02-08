@@ -1,0 +1,60 @@
+---
+const { bungalows } = Astro.props;
+import Card from './Card.astro';
+---
+
+<section class="bg-grey-100">
+  <div class="mx-auto max-w-[1200px] px-5 py-20">
+    <h2 class="mb-20 text-center font-heading text-3xl font-bold sm:text-4xl">
+      Bungalows
+    </h2>
+    <div
+      class="grid-col-2 mx-auto grid max-w-[1000px] items-center gap-6 sm:grid-cols-4 lg:grid-cols-6"
+    >
+      {
+        bungalows.models.edges.map((model: any, i: number) => {
+          return (
+            <a
+              class={`${i < 2 ? 'col-span-2 lg:col-span-3' : 'col-span-2'}`}
+              href={`/models/${model.node.slug}`}
+            >
+              <Card model={model} />
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .models__container {
+    margin: 0 auto;
+    display: grid;
+
+    grid-template-areas:
+      'item1 item1 item1 item2 item2 item2'
+      'item3 item3 item4 item4 item5 item5'
+      'item6 item6 item7 item7 item8 item8';
+
+    max-width: 1000px;
+    justify-items: center;
+    gap: 3%;
+
+    @media only screen and (max-width: 1000px) {
+      grid-template-areas: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+
+      & a {
+        grid-area: auto !important;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

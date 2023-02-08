@@ -1,0 +1,87 @@
+---
+import Button from '../../Buttons/Button.astro';
+import { Image } from '@astrojs/image/components';
+const { model } = Astro.props;
+---
+
+<div class="max-w-[300px] rounded-b-2xl shadow-xl">
+  <div class="relative">
+    <Image
+      src={model.node.mrHomes.modelDetails.image.sourceUrl}
+      alt={model.node.mrHomes.modelDetails.image.altText}
+      width={600}
+      aspectRatio={4 / 2.8}
+      format="webp"
+      fit="cover"
+      background="transparent"
+      class="rounded-t-2xl"
+    />
+    <div
+      class="absolute bottom-0 w-full bg-black-100 bg-opacity-50 px-2 py-0.5"
+    >
+      <h3 class="font-heading text-lg font-bold text-white sm:text-xl">
+        {model.node.mrHomes.modelDetails.name.replace('The', '')}
+      </h3>
+      <p class="text-sm text-white">
+        {model.node.mrHomes.modelDetails.lot} - {
+          model.node.mrHomes.modelDetails.address
+        }
+      </p>
+    </div>
+  </div>
+  <div
+    class="flex flex-col rounded-b-2xl border border-t-0 border-grey-300 text-black-300"
+  >
+    <div class="grid grid-cols-2 border-b border-grey-300 text-sm">
+      <div class="border-b border-r border-grey-300 p-2">
+        <p class="font-bold">{model.node.mrHomes.modelDetails.price}</p>
+      </div>
+      <div class="spec border-b border-grey-300 p-2">
+        <img src="/icons/home.svg" alt="home icon" class="w-[20px]" />
+        <p>{model.node.mrHomes.modelDetails.squareFootage} Sq. Ft</p>
+      </div>
+      <div class="spec border-b border-r border-grey-300 p-2">
+        <img src="/icons/bed.svg" alt="bed icon" class="w-[20px]" />
+        <p>{model.node.mrHomes.modelDetails.beds} Bed Rm</p>
+      </div>
+      <div class="spec border-b border-grey-300 p-2">
+        <img src="/icons/bath.svg" alt="bath icon" class="w-[18px]" />
+        <p>{model.node.mrHomes.modelDetails.bathrooms} Baths</p>
+      </div>
+      <div class="spec border-grey-30 border-r border-grey-300 p-2">
+        <img src="/icons/tree.svg" alt="tree icon" class="w-[14px]" />
+        <p>{model.node.mrHomes.modelDetails.lotArea} Ft Lot</p>
+      </div>
+      <div class="spec p-2">
+        <img src="/icons/car.svg" alt="car icon" class="w-[20px]" />
+        <p>
+          {model.node.mrHomes.modelDetails.garage} Garage
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col items-center gap-2 py-3">
+      <div class="mb-1 text-center">
+        <p>{model.node.mrHomes.modelDetails.address}</p>
+        <p>
+          Move in <strong>{model.node.mrHomes.modelDetails.moveInDate}</strong>
+        </p>
+      </div>
+      <Button text={`Explore ${model.node.mrHomes.modelDetails.name}`} />
+      <a
+        href={model.node.mrHomes.modelDetails.brochureLink.mediaItemUrl}
+        target="_blank"
+        rel="noreferrer"
+        class="bold cursor-pointer rounded border-2 border-red bg-red bg-transparent px-2 py-1 text-center text-sm text-red transition duration-100 ease-linear hover:bg-red hover:text-white"
+        >View Brochure
+      </a>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .spec {
+    display: grid;
+    grid-template-columns: 36px auto;
+    align-items: center;
+  }
+</style>
