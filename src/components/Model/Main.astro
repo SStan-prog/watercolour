@@ -11,29 +11,29 @@ const { model } = Astro.props;
     <h1
       class="mb-16 text-center font-heading text-3xl font-bold text-black-400 sm:text-5xl"
     >
-      {model.name}
+      {model?.name}
     </h1>
     <div class="mb-32 w-full">
-      <Slider client:idle images={model.sliderImages} />
+      <Slider client:idle images={model?.sliderImages} />
     </div>
     <Specs
       beds={model.beds}
-      bathrooms={model.bathrooms}
-      lotArea={model.lotArea}
-      squareFootage={model.squareFootage}
+      bathrooms={model?.bathrooms}
+      lotArea={model?.lotArea}
+      squareFootage={model?.squareFootage}
     />
-    <Features features={model.features} brochure={model.brochure} />
+    <Features features={model?.features} brochure={model?.brochure} />
     <div class="mt-20 mb-10">
       <p class="text-center text-[22px]">
         Contact us using the form below to find out more about<br />
-        {model.name}
+        {model?.name}
       </p>
     </div>
   </div>
   <div class="">
     {
-      model.virtualTourLink && (
-        <VirtualTour virtualTour={model.virtualTourLink} />
+      model?.virtualTourLink && (
+        <VirtualTour virtualTour={model?.virtualTourLink} />
       )
     }
   </div>

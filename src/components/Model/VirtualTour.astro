@@ -1,14 +1,10 @@
 ---
 const { virtualTour } = Astro.props;
-console.log(virtualTour);
 ---
 
 <section class="bg-grey-200 py-20">
   <div class="mx-auto max-w-[1000px]">
-    <iframe
-      src={virtualTour}
-      frameborder="0"
-      class="aspect-video w-full"
-      loading="lazy"></iframe>
+    <iframe src={virtualTour} class="aspect-video w-full" loading="lazy"
+    ></iframe>
   </div>
 </section>

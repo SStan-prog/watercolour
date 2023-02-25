@@ -4,7 +4,7 @@ import Header from '../components/Home/Header.astro';
 import NeighbourhoodFeatures from '../components/Home/NeighbourhoodFeatures.astro';
 import Testimonials from '../components/Home/Testimonials.astro';
 import MiddleCta from '../components/Home/MiddleCta.astro';
-import Videos from '../components/Home/Videos/Videos';
+import Videos from '../components/Home/Videos/Videos-old';
 import FooterGallery from '../components/Common/FooterGallery/FooterGallery.svelte';
 
 import { homePageQuery } from '../queries/pages/home';
@@ -21,6 +21,6 @@ const gallery = data.themeGeneralSettings.footerGallery.gallery;
   <NeighbourhoodFeatures features={data.page.neighbourhood_features} />
   <Testimonials testimonials={data.page.testimonials} />
   <MiddleCta middleCta={data.page.home_middle_cta} />
-  <Videos videos={data.page.homeVideos} client:idle />
+  <Videos videos={data.page.homeVideos} client:load />
   <FooterGallery gallery={gallery} client:idle />
 </Layout>

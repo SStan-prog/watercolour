@@ -17,15 +17,15 @@ interface Video {
 
 const Videos = ({ videos }: any) => {
   return (
-    <section className="bg-green  py-20 pb-32 px-5">
+    <section className="bg-green  py-20 px-5 pb-32">
       <div className="flex flex-col items-center text-center text-white ">
         <div className="mb-10">
-          <h2 className="font-heading font-bold text-3xl sm:text-5xl mb-5 text-white">
+          <h2 className="mb-5 font-heading text-3xl font-bold text-white sm:text-5xl">
             {videos.homeVideosSectionText.videosheading}
           </h2>
           <p className="text-2xl">{videos.homeVideosSectionText.body}</p>
         </div>
-        <div className="max-w-[1000px] aspect-video w-full ">
+        <div className="aspect-video w-full max-w-[1000px] ">
           <Swiper
             slidesPerView={1}
             modules={[Pagination, Navigation]}
@@ -37,7 +37,8 @@ const Videos = ({ videos }: any) => {
                 <SwiperSlide className="pb-12">
                   <iframe
                     src={`${video.video}?rel=0`}
-                    className="w-full h-full aspect-video "
+                    className="aspect-video h-full w-full "
+                    loading="lazy"
                   />
                 </SwiperSlide>
               );

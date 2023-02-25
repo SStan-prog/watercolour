@@ -24,7 +24,8 @@
         pagination={{ clickable: true }}
         navigation
       >
-        {#each videos as video, i}
+        {#each videos as video}
+          {console.log(video)}
           <SwiperSlide class="pb-12">
             <iframe
               src={`${video.video}?rel=0`}
