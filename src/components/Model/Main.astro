@@ -4,6 +4,10 @@ import Specs from './Specs.astro';
 import Features from './Features.astro';
 import VirtualTour from './VirtualTour.astro';
 const { model } = Astro.props;
+
+import { popUpQuery } from '../../queries/common/popup';
+const data = await popUpQuery();
+console.log(data);
 ---
 
 <section>

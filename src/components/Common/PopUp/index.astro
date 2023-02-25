@@ -1,0 +1,9 @@
+---
+import PopUp from './PopUp.svelte';
+import { popUpQuery } from '../../../queries/common/popup';
+const data = await popUpQuery();
+console.log(data);
+const popUp = data.themeGeneralSettings.popup;
+---
+
+<PopUp popUp={popUp} client:idle />

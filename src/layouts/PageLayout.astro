@@ -1,12 +1,12 @@
 ---
 import Layout from './BaseLayout.astro';
+import PopUp from '../components/Common/PopUp/index.astro';
 import Navbar from '../components/Common/Layout/Navbar.svelte';
 import Footer from '../components/Common/Layout/Footer.astro';
 
 import { navQuery, footerQuery } from '../queries/api';
 const navMenus = await navQuery();
 const primaryMenu = navMenus.menus.nodes[0];
-
 const footerMenus = await footerQuery();
 const footerMenu = footerMenus.menus.nodes[0];
 const footerForms = footerMenus.themeGeneralSettings.footerforms;
@@ -15,6 +15,7 @@ const { title, seo } = Astro.props;
 ---
 
 <Layout {title} {seo}>
+  <PopUp />
   <Navbar menu={primaryMenu} client:load />
   <main class="main">
     <slot />

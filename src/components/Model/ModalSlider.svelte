@@ -45,8 +45,6 @@
 
   export let images;
   export let thumbsSwiper;
-
-  console.log(thumbsSwiper);
 </script>
 
 <svelte:window on:keydown={handle_keydown} />
