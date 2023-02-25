@@ -1,0 +1,48 @@
+---
+import { Image } from '@astrojs/image/components';
+const { header } = Astro.props;
+const rowOne = header.rowone;
+const rowTwo = header.rowtwo;
+---
+
+<header>
+  <div class="mx-auto flex flex-col items-center py-20">
+    <div class="flex max-w-[1200px] flex-col items-center gap-10 px-5">
+      <div class="flex flex-col gap-10 md:grid md:grid-cols-8">
+        <div class="col-span-5">
+          <h1 class="mb-2 font-heading text-3xl font-bold sm:text-5xl">
+            {rowOne.heading}
+          </h1>
+          <div class="[&>p]:mb-2" set:html={rowOne.body} />
+        </div>
+        <div class="col-span-3 self-center">
+          <Image
+            src={rowOne.image.sourceUrl}
+            alt={rowOne.image.altText}
+            width={350}
+            aspectRatio={16 / 9}
+            format="webp"
+            fit="contain"
+            background="transparent"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col-reverse gap-10 md:grid md:grid-cols-8">
+        <div class="col-span-3 self-center">
+          <Image
+            src={rowTwo.image.sourceUrl}
+            alt={rowTwo.image.altText}
+            width={350}
+            aspectRatio={1 / 1}
+            format="webp"
+            fit="contain"
+            background="transparent"
+          />
+        </div>
+        <div class="col-span-5">
+          <div class="[&>p]:mb-2" set:html={rowTwo.body} />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

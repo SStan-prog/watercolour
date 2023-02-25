@@ -96,6 +96,19 @@ export async function netZeroPageQuery() {
                   }
                 }
               }
+              optinform {
+                optin {
+                  body
+                  heading
+                  image {
+                    altText
+                    sourceUrl
+                  }
+                  fileDownload {
+                    mediaItemUrl
+                  }
+                }
+              }
             }
             themeGeneralSettings {
               footerGallery {

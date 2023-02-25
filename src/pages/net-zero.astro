@@ -2,11 +2,13 @@
 import Layout from '../layouts/PageLayout.astro';
 import Header from '../components/NetZero/Header.astro';
 import ContentRowOne from '../components/NetZero/ContentRowOne.astro';
+import OptInForm from '../components/Common/OptInForm/OptInForm.astro';
+import Videos from '../components/NetZero/Videos/Videos.astro';
 import Testimonials from '../components/NetZero/Testimonials.astro';
 import Technologies from '../components/NetZero/Technologies.astro';
 import ContentRowTwo from '../components/NetZero/ContentRowTwo.astro';
 import Resources from '../components/NetZero/Resources.astro';
-import FooterGallery from '../components/Common/FooterGallery/FooterGallery.astro';
+import FooterGallery from '../components/Common/FooterGallery/FooterGallery.svelte';
 
 import { netZeroPageQuery } from '../queries/pages/net-zero';
 
@@ -15,6 +17,8 @@ const data = await netZeroPageQuery();
 const seo = data.page.seo;
 const header = data.page.netzero.header;
 const contentRowOne = data.page.netzero.contentRow1;
+const optInForm = data.page.optinform;
+const videos = data.page.netzero.videos;
 const testimonials = data.page.netzero.testimonials;
 const technologies = data.page.netzero.technologies;
 const contentRowTwo = data.page.netzero.contentRow2;
@@ -25,6 +29,8 @@ const gallery = data.themeGeneralSettings.footerGallery.gallery;
 <Layout seo={seo}>
   <Header header={header} />
   <ContentRowOne content={contentRowOne} />
+  <OptInForm props={optInForm} />
+  <Videos videos={videos} />
   <Testimonials testimonials={testimonials} />
   <Technologies technologies={technologies} />
   <ContentRowTwo content={contentRowTwo} />

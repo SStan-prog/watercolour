@@ -1,57 +1,58 @@
 ---
 import { Image } from '@astrojs/image/components';
 const { testimonials } = Astro.props;
-
-interface TestimonialImage {
-  sourceUrl: string;
-  altText: string;
-}
-
-interface Testimonial {
-  name: string;
-  body: string;
-  link: string;
-  image: TestimonialImage;
-}
 ---
 
 <section class="bg-green py-20">
-  <div class="max-w-[1200px] mx-auto flex flex-col items-center px-10">
+  <div class="mx-auto flex max-w-[1200px] flex-col items-center px-10">
     <h2
-      class="text-3xl sm:text-5xl text-white font-heading font-bold mb-16 text-center sm:leading-relaxed"
+      class="mb-16 text-center font-heading text-3xl font-bold text-white sm:text-5xl sm:leading-relaxed"
     >
       {testimonials.heading}
     </h2>
-    <div class="flex gap-10 flex-wrap justify-center">
+    <div class="flex flex-wrap items-stretch justify-center gap-10">
       {
-        testimonials.testimonials.map((testimonial: Testimonial) => {
+        testimonials.testimonials.map((testimonial: any) => {
           return (
-            <div class="max-w-[325px]">
+            <div class="relative flex h-full  w-full max-w-[325px] flex-col">
               {' '}
               <Image
                 src={testimonial.image.sourceUrl}
                 alt={testimonial.image.altText}
                 width={325}
-                aspectRatio={4 / 3}
+                height={200}
                 format="webp"
                 fit="cover"
                 position="center"
-                class="rounded-t-lg border-b-8 border-b-grey-200"
+                class="border-b-grey-200 rounded-t-lg border-b-8 "
               />
-              <div class="relative bg-white pt-6 px-2 pb-2 rounded-b-lg shadow-3xl">
-                <div class="absolute -top-6 bg-red rounded-full p-3 ">
+              <div class="shadow-3xl relative rounded-b-lg bg-white px-2 pt-6 pb-2">
+                <div class="bg-red absolute -top-6 rounded-full p-3 ">
                   <img src="/icons/quote.svg" alt="quote" class="w-[16px]" />
                 </div>
-
-                <p class="mb-2">
-                  {testimonial.body}{' '}
-                  <a class="text-red" href={testimonial.link}>
-                    {' '}
-                    Read More
-                  </a>
-                </p>
-
-                <span class="font-heading font-bold">{testimonial.name}</span>
+                <div class="flex h-full min-h-[180px] flex-col">
+                  <p class="mb-2 flex-1">
+                    {testimonial.body}{' '}
+                    {testimonial.link.linkType === 'blog' ? (
+                      <a class="text-red" href={testimonial.link.link}>
+                        {' '}
+                        Read More
+                      </a>
+                    ) : (
+                      <a
+                        class="text-red"
+                        href={testimonial.link.link}
+                        target="_blank"
+                      >
+                        {' '}
+                        Watch Video
+                      </a>
+                    )}
+                  </p>
+                  <div class=" h-full pb-2 ">
+                    <p class="font-heading  font-bold">{testimonial.name}</p>
+                  </div>
+                </div>
               </div>
             </div>
           );

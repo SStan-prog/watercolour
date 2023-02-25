@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Common/Header/header.astro';
+import Main from '../components/Activities/Main.astro';
+import OptInForm from '../components/Common/OptInForm/OptInForm.astro';
+
+import { activitiesPageQuery } from '../queries/pages/activities';
+const data = await activitiesPageQuery();
+const seo = data.page.seo;
+
+const header = data.page.activities.header;
+const main = data.page.activities.main;
+const activities = data.activities;
+const optIn = data.page.optinform;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <Main main={main} activities={activities} />
+  <OptInForm props={optIn} />
+</Layout>

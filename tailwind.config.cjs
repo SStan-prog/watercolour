@@ -37,6 +37,12 @@ module.exports = {
       boxShadow: {
         '3xl': '6px 6px 18px 0px rgb(0 0 0 / 30%)',
       },
+      aspectRatio: {
+        '4/3': '4 / 3',
+      },
+      screens: {
+        'table-scroll': '820px',
+      },
     },
   },
   plugins: [],

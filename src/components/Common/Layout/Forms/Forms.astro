@@ -1,0 +1,26 @@
+---
+import SocialMedia from './SocialMedia.astro';
+import ContactForm from './ContactForm.svelte';
+import SalesForm from './SalesForm.svelte';
+
+const { forms } = Astro.props;
+
+const socialMedia = forms.socialMedia;
+const contactForm = forms.contactForm;
+const salesForm = forms.salesForm;
+---
+
+<div class="bg-black-100 py-10 px-5">
+  <div
+    class="mx-auto grid max-w-[1000px] grid-cols-1 justify-items-center gap-20 lg:grid-cols-2"
+  >
+    <div class="flex max-w-[600px] flex-col items-center">
+      <SalesForm client:load salesForm={salesForm} />
+    </div>
+    <div class="flex max-w-[600px] flex-col items-center">
+      <ContactForm client:load contactForm={contactForm} />
+
+      <SocialMedia socialMedia={socialMedia} />
+    </div>
+  </div>
+</div>

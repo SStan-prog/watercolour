@@ -3,7 +3,7 @@
   export let virtualTours;
 </script>
 
-<section class="bg-grey-100">
+<section class="" id="virtual-tours">
   <div class="mx-auto">
     <div class="w-full bg-green">
       <h2

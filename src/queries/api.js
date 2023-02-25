@@ -13,7 +13,7 @@ export async function navQuery() {
                             url
                             order
                             label
-                            childItems {
+                            childItems (first: 50){
                                 edges {
                                   node {
                                     id
@@ -49,7 +49,7 @@ export async function footerQuery() {
                 url
                 order
                 label
-                childItems {
+                childItems (first: 50){
                   edges {
                     node {
                       id
@@ -59,6 +59,26 @@ export async function footerQuery() {
                   }
                 }
               }
+            }
+          }
+        }
+        themeGeneralSettings {
+          footerforms {
+            contactForm {
+              body
+              disclaimer
+              heading
+            }
+            salesForm {
+              body
+              heading
+            }
+            socialMedia {
+              facebookLink
+              fieldGroupName
+              heading
+              instagramLink
+              youtubeLink
             }
           }
         }

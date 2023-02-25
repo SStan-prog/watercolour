@@ -35,7 +35,10 @@ export async function homePageQuery() {
                 sourceUrl
               }
               name
-              link
+              link {
+                link
+                linkType
+              }
             }
           }
           homeVideos {
@@ -67,6 +70,19 @@ export async function homePageQuery() {
               image {
                 altText
                 sourceUrl
+              }
+            }
+          }
+          home {
+            header {
+              heading
+              image {
+                altText
+                sourceUrl
+              }
+              buttons {
+                buttonLink
+                buttonText
               }
             }
           }

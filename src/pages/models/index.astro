@@ -5,15 +5,24 @@ import ContenRow from '../../components/Models/ContenRow.astro';
 import SiteMap from '../../components/Models/SiteMap.astro';
 import PurchaseSteps from '../../components/Models/purchaseSteps.astro';
 import Bungalows from '../../components/Models/Cards/Bungalows.astro';
+import TwoStoreys from '../../components/Models/Cards/TwoStoreys.astro';
+import TwoStoreyTowns from '../../components/Models/Cards/TwoStoreyTowns.astro';
+import BungalowTownTri from '../../components/Models/Cards/BungalowTownTri.astro';
 import VirtualTours from '../../components/Models/VirtualTours/VirtualTours.svelte';
 import StandardFeatures from '../../components/Models/StandardFeatures/StandardFeatures.svelte';
 import MortgagePartner from '../../components/Models/MortgagePartner.astro';
 
 import { modelsPageQuery } from '../../queries/pages/models';
 import { bungalowsQuery } from '../../queries/models/bungalows';
+import { twoStoreysQuery } from '../../queries/models/twoStoreys';
+import { twoStoreyTownsQuery } from '../../queries/models/twoStoreyTowns';
+import { bungalowTownTriQuery } from '../../queries/models/bungalowTownTri';
 
 const data = await modelsPageQuery();
 const bungalows = await bungalowsQuery();
+const twoStoreys = await twoStoreysQuery();
+const twoStoreyTowns = await twoStoreyTownsQuery();
+const bungalowTownTri = await bungalowTownTriQuery();
 
 const seo = data.page.seo;
 const header = data.page.models_page.header;
@@ -32,6 +41,9 @@ const mortgageProvider = data.page.models_page.mortgagePartner;
   <PurchaseSteps purchaseSteps={purchaseSteps} />
   <Bungalows bungalows={bungalows} />
   <VirtualTours virtualTours={virtualTours} client:idle />
+  <TwoStoreys twoStoreys={twoStoreys} />
+  <TwoStoreyTowns twoStoreyTowns={twoStoreyTowns} />
+  <BungalowTownTri bungalowTownTri={bungalowTownTri} />
   <StandardFeatures standardFeatures={standardFeatures} client:idle />
   <MortgagePartner mortgageProvider={mortgageProvider} />
 </Layout>

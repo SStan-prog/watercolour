@@ -1,0 +1,14 @@
+.answer a {
+  color: var(--color-red);
+}
+
+.answer ul {
+  list-style: inside;
+}
+.answer ul li {
+  margin: 1rem 0;
+}
+
+.answer p {
+  margin: 1rem 0;
+}/*# sourceMappingURL=styles.module.css.map */

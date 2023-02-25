@@ -1,0 +1,27 @@
+---
+import Header from '../VillageService/Header/index.astro';
+import Favourites from '../VillageService/Favourites/index.astro';
+import Custom from '../VillageService/Custom/index.astro';
+import Directory from '../VillageService/Directory/index.astro';
+const { villageService } = Astro.props;
+---
+
+<div class="">
+  {villageService.header && <Header header={villageService.header} />}
+
+  {
+    villageService.favourites && (
+      <Favourites favourites={villageService.favourites} />
+    )
+  }
+  {
+    villageService.customContent.heading && (
+      <Custom custom={villageService.customContent} />
+    )
+  }
+  {
+    villageService.directory.heading && (
+      <Directory directory={villageService.directory} />
+    )
+  }
+</div>

@@ -1,7 +1,7 @@
 <script>
   import ModalSlider from './ModalSlider.svelte';
   import { Swiper, SwiperSlide } from 'swiper/svelte';
-  import { Navigation, Pagination } from 'swiper';
+  import { Navigation, Pagination, Thumbs } from 'swiper';
 
   import 'swiper/css';
   import 'swiper/css/pagination';
@@ -14,15 +14,27 @@
   const toggleModal = () => {
     showModal = !showModal;
   };
+
+  // store Thumbs swiper instance
+  let thumbsSwiper = null;
+
+  const setThumbsSwiper = (e) => {
+    const [swiper] = e.detail;
+    // set Thumbs swiper instance
+    setTimeout(() => {
+      thumbsSwiper = swiper;
+    });
+  };
 </script>
 
 <div class="model-slider ">
   <Swiper
     pagination={{ clickable: true }}
-    modules={[Pagination, Navigation]}
+    modules={[Pagination, Navigation, Thumbs]}
     navigation
     loop={true}
     allowTouchMove={false}
+    on:swiper={setThumbsSwiper}
   >
     {#each images as image, i}
       <SwiperSlide>
@@ -43,6 +55,6 @@
   </Swiper>
 
   {#if showModal}
-    <ModalSlider on:close={() => (showModal = false)} {images} />
+    <ModalSlider on:close={() => (showModal = false)} {images} {thumbsSwiper} />
   {/if}
 </div>

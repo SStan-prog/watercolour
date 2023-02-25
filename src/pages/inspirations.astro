@@ -12,10 +12,11 @@ const sections = data.page.inspirations.section;
 
 <Layout seo={seo}>
   <Header header={header} />
-
-  {
-    sections.map((s: any) => {
-      return <Section section={s} />;
-    })
-  }
+  <div class="pb-10">
+    {
+      sections.map((s: any) => {
+        return <Section section={s} />;
+      })
+    }
+  </div>
 </Layout>

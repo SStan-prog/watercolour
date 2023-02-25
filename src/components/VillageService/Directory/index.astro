@@ -1,0 +1,24 @@
+---
+const { directory } = Astro.props;
+---
+
+<section>
+  <div
+    class="mx-auto flex max-w-[800px] flex-col items-center gap-10 py-20 px-5 lg:max-w-[1200px]"
+  >
+    <div class="directory text-center" set:html={directory.heading} />
+    <ul class="grid grid-cols-1 gap-x-20 text-center sm:grid-cols-2">
+      {
+        directory.links.map((link: any) => {
+          return (
+            <li class="my-2 text-xl">
+              <a target="_blank" rel="noreferrer" href={link.link}>
+                {link.title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>

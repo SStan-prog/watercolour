@@ -38,12 +38,15 @@
   }
 
   import { Swiper, SwiperSlide } from 'swiper/svelte';
-  import { Navigation } from 'swiper';
+  import { Navigation, Thumbs } from 'swiper';
 
   import 'swiper/css';
   import 'swiper/css/navigation';
 
   export let images;
+  export let thumbsSwiper;
+
+  console.log(thumbsSwiper);
 </script>
 
 <svelte:window on:keydown={handle_keydown} />
@@ -58,7 +61,12 @@
   bind:this={modal}
   class="modal-model-slider w-[95vw] md:w-[80vw] z-10 h-auto fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2"
 >
-  <Swiper modules={[Navigation]} navigation loop={true}>
+  <Swiper
+    modules={[Navigation, Thumbs]}
+    navigation
+    loop={true}
+    thumbs={{ swiper: thumbsSwiper }}
+  >
     {#each images as image, i}
       <SwiperSlide class="m-auto">
         <div class="w-full  mx-auto">
@@ -72,11 +80,15 @@
       </SwiperSlide>
     {/each}
   </Swiper>
-
-  <button
-    on:click={close}
-    class="flex items-center justify-center w-10 sm:w-14 h-10 sm:h-14 text-3xl absolute -top-10 right-0 z-50 rounded-full bg-yellow"
-    ><div class="absolute h-6 sm:h-10 w-1  bg-black-400 rotate-45 " />
-    <div class="absolute h-6 sm:h-10 w-1  bg-black-400 -rotate-45 " />
-  </button>
 </div>
+
+<button
+  on:click={close}
+  class="flex items-center justify-center w-10 sm:w-14 h-10 sm:h-14 text-3xl fixed top-1 right-1 z-50 rounded-full group"
+>
+  <img
+    src="/icons/close.svg"
+    alt="close"
+    class="transition-opacity opacity-50 group-hover:opacity-100 h-[50px] w-[50px]"
+  />
+</button>

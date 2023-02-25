@@ -1,0 +1,30 @@
+---
+const { socialMedia } = Astro.props;
+---
+
+<div class="flex flex-col items-center">
+  <span class="mb-10 block text-5xl text-yellow">{socialMedia.heading}</span>
+  <div class="flex items-center gap-10">
+    <a
+      href={socialMedia.facebookLink}
+      title="Link to Facebook page"
+      target="_blank"
+    >
+      <img src="/icons/facebook.svg" alt="facebook" class="w-[50px]" />
+    </a>
+    <a
+      href={socialMedia.instagramLink}
+      title="Link to Instagram page"
+      target="_blank"
+    >
+      <img src="/icons/instagram.svg" alt="instagram" class="w-[50px]" />
+    </a>
+    <a
+      href={socialMedia.youtubeLink}
+      title="Link to Youtube channel"
+      target="_blank"
+    >
+      <img src="/icons/youtube.svg" alt="youtube" class="w-[50px]" />
+    </a>
+  </div>
+</div>

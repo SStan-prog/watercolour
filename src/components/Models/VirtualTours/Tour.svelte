@@ -24,7 +24,7 @@
     alt={image.altText}
     width={400}
     loading="lazy"
-    class="mx-auto mb-5 sm:mb-10 aspect-video"
+    class="mx-auto mb-5 sm:mb-10 aspect-4/3 object-cover rounded-md"
   />
   <h3 class="mb-5 text-xl sm:text-3xl text-center">{name}</h3>
   <div class="flex flex-wrap justify-center gap-5">
@@ -33,7 +33,7 @@
         on:click={toggleVirtualModal}
         class="bg-red bold border-red  hover:text-red cursor-pointer  border-2 text-center text-white transition duration-100 ease-linear hover:bg-transparent rounded-xl px-4 py-2 text-xl sm:px-5 sm:py-3 sm:text-2xl"
       >
-        View 3d Tour
+        View Virtual Tour
       </button>
     {/if}
     {#if videoTourLink}

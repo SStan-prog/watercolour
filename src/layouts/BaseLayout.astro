@@ -45,6 +45,8 @@ const { title, seo } = Astro.props;
       html {
         margin: 0 auto;
         height: 100%;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
       }
 
       body {
@@ -69,23 +71,28 @@ const { title, seo } = Astro.props;
         color: var(--color-red);
       }
 
-      .content-block h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: #2d2d2d;
+      .content-block {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: #2d2d2d;
+        }
       }
 
-      .content-block h3 {
-        font-size: 26px;
-        font-weight: 900;
-        color: #2d2d2d;
+      .content-block {
+        h3 {
+          font-size: 26px;
+          font-weight: 900;
+          color: #2d2d2d;
+        }
       }
-
-      .content-block strong {
-        font-weight: 900;
+      .content-block {
+        strong {
+          font-weight: 900;
+        }
       }
 
       .content-block ol {
@@ -106,6 +113,70 @@ const { title, seo } = Astro.props;
       .text-shadow-lg {
         text-shadow: 0 15px 30px rgba(0, 0, 0, 0.11),
           0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Activities */
+
+      .activity-header a {
+        color: var(--color-red);
+      }
+
+      .activity-header p {
+        font-size: 18px;
+      }
+
+      .directory {
+        & h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: var(--font-heading);
+          font-weight: bold;
+          font-family: var(--font-heading);
+
+          font-size: 32px;
+          margin-bottom: 0;
+        }
+      }
+
+      .activity-card {
+        & h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: var(--font-heading);
+          font-size: 32px;
+          font-weight: bold;
+          margin-bottom: 2rem;
+        }
+      }
+
+      .activity-card p strong {
+        font-size: 20px;
+      }
+
+      .custom-body {
+        & h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: var(--font-heading);
+          font-weight: bold;
+          font-size: 24px;
+          margin-bottom: 8px;
+          margin-top: 8px;
+        }
+
+        & p {
+          font-size: 18px;
+          margin-bottom: 8px;
+        }
       }
 
       /* SWIPER OVERRIDE */

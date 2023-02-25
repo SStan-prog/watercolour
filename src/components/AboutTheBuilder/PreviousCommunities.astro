@@ -1,0 +1,45 @@
+---
+import { Image } from '@astrojs/image/components';
+import Button from '../Buttons/Button.astro';
+const { previousCommunities } = Astro.props;
+---
+
+<section>
+  <div class="mx-auto flex w-full max-w-[1200px] flex-col py-20 px-5">
+    <div class="grid-col-1 grid w-full gap-20 md:grid-cols-2">
+      <div class="flex flex-col items-center">
+        <h2
+          class="mb-2 text-center font-heading text-2xl font-bold sm:text-3xl"
+        >
+          {previousCommunities.heading}
+        </h2>
+        <div class="mb-5 text-lg" set:html={previousCommunities.body} />
+        <Button
+          href={previousCommunities.buttonLink}
+          text={previousCommunities.buttonText}
+          blank
+          large
+        />
+
+        <div class="mt-10">
+          <Image
+            src={previousCommunities.image.sourceUrl}
+            alt={previousCommunities.image.altText}
+            width={500}
+            aspectRatio={4 / 3}
+            format="webp"
+            fit="cover"
+            background="transparent"
+          />
+        </div>
+      </div>
+      <div class="">
+        <iframe
+          src={previousCommunities.mapIframeLink}
+          loading="lazy"
+          title="Landark Communities Map"
+          class="aspect-square w-full"></iframe>
+      </div>
+    </div>
+  </div>
+</section>

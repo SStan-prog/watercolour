@@ -1,0 +1,62 @@
+---
+import { Image } from '@astrojs/image/components';
+import Button from '../Buttons/Button.astro';
+
+const { main, activities } = Astro.props;
+---
+
+<section>
+  <div
+    class="mx-auto flex w-full max-w-[1200px] flex-col items-center py-20 px-5"
+  >
+    <div class="max-w-[1000px]">
+      <h2 class="mb-10 text-center font-heading text-3xl font-bold sm:text-5xl">
+        {main.heading}
+      </h2>
+      <div
+        class="flex flex-col items-center [&>p]:text-lg [&>p]:sm:text-2xl [&>hr]:my-10 [&>hr]:w-full [&>hr]:max-w-[100px]"
+        set:html={main.body}
+      />
+      <div class="grid grid-cols-1 gap-5 py-20 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          activities.nodes.map((a: any) => {
+            return (
+              <a
+                href={`/activities/${a.slug}`}
+                class="hover:shadow-3xl relative inline-block  rounded-lg transition-shadow"
+              >
+                <div class=" bg-black-400 absolute z-10 h-full w-full rounded-lg bg-opacity-20" />
+                <h3 class="font-heading absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 text-center text-3xl font-bold uppercase text-white">
+                  {a.title}
+                </h3>
+                <Image
+                  src={a.featuredImage.node.sourceUrl}
+                  alt={a.featuredImage.node.altText}
+                  width={650}
+                  aspectRatio={1}
+                  format="webp"
+                  fit="cover"
+                  background="transparent"
+                  class=" rounded-lg"
+                />
+              </a>
+            );
+          })
+        }
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-center justify-around gap-10">
+        {
+          main.buttons.map((b: any) => {
+            if (b.blank) {
+              return (
+                <Button href={b.buttonLink} text={b.buttonText} large blank />
+              );
+            }
+            return <Button href={b.buttonLink} text={b.buttonText} large />;
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -26,35 +26,3 @@ import Card from './Card.astro';
     </div>
   </div>
 </section>
-
-<style lang="scss">
-  .models__container {
-    margin: 0 auto;
-    display: grid;
-
-    grid-template-areas:
-      'item1 item1 item1 item2 item2 item2'
-      'item3 item3 item4 item4 item5 item5'
-      'item6 item6 item7 item7 item8 item8';
-
-    max-width: 1000px;
-    justify-items: center;
-    gap: 3%;
-
-    @media only screen and (max-width: 1000px) {
-      grid-template-areas: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-
-      & a {
-        grid-area: auto !important;
-      }
-    }
-
-    @media only screen and (max-width: 600px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-</style>

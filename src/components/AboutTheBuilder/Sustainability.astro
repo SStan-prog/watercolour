@@ -1,0 +1,35 @@
+---
+import { Image } from '@astrojs/image/components';
+const { sustainability } = Astro.props;
+---
+
+<section
+  style={`background-image: url(${sustainability.backgroundImage.sourceUrl});`}
+  class="bg-cover bg-center p-10 sm:p-16"
+>
+  <div class="mx-auto max-w-[1200px] bg-white bg-opacity-70 p-5 sm:p-10">
+    <div class="mb-5">
+      <h2 class="mb-2 text-center text-2xl font-bold sm:text-3xl">
+        {sustainability.heading}
+      </h2>
+      <p class="text-center text-xl sm:text-2xl">{sustainability.subheading}</p>
+    </div>
+    <div class="mx-auto flex max-w-[800px] flex-wrap justify-around">
+      {
+        sustainability.images.map((i: any) => {
+          return (
+            <Image
+              src={i.image.sourceUrl}
+              alt={i.image.altText}
+              width={300}
+              aspectRatio={16 / 9}
+              format="webp"
+              fit="contain"
+              background="transparent"
+            />
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

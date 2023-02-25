@@ -1,0 +1,89 @@
+---
+import { Image } from '@astrojs/image/components';
+import Point from './point.astro';
+const { impactPoints, footerImage } = Astro.props;
+---
+
+<section>
+  <div class="mx-auto flex max-w-[1600px] flex-col items-center py-20 px-5">
+    <ul class="blocks-container">
+      <li class="line"></li>
+      {
+        impactPoints.map((p: any, i: any) => {
+          if (i % 2 == 0) {
+            return <Point point={p} right />;
+          }
+          return <Point point={p} />;
+        })
+      }
+    </ul>
+  </div>
+  <div class="">
+    <Image
+      src={footerImage.sourceUrl}
+      alt={footerImage.altText}
+      width={1920}
+      aspectRatio={16 / 8}
+      format="webp"
+      fit="cover"
+      background="transparent"
+      class="mx-auto"
+    />
+  </div>
+</section>
+
+<style>
+  .blocks-container {
+    position: relative;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr, 8);
+
+    overflow: hidden;
+  }
+
+  .line {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-size: contain;
+    background-repeat: repeat;
+    background-image: url('/icons/dot.png');
+
+    width: 14px;
+    height: 100%;
+
+    list-style: none;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .line {
+      position: absolute;
+
+      left: 73px;
+      transform: translate(0, 10px);
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .line {
+      left: 53px;
+      transform: translate(0, 10px);
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .blocks-container {
+      width: 100%;
+      padding: 0;
+    }
+
+    .line {
+      left: 33px;
+      transform: translate(0, 10px);
+    }
+  }
+</style>

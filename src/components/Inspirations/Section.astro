@@ -1,7 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
 const { section } = Astro.props;
-console.log(section);
 ---
 
 <section>
@@ -16,7 +15,6 @@ console.log(section);
     >
       {
         section.communities.map((c: any, i: number) => {
-          console.log(i);
           return (
             <a
               href={c.link}

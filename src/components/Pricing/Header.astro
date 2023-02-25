@@ -1,0 +1,32 @@
+---
+const { header } = Astro.props;
+---
+
+<header>
+  <div class="mx-auto flex flex-col items-center">
+    <div
+      class="h-[200px] w-full bg-cover bg-center sm:h-[300px]"
+      style={`background-image:  linear-gradient(
+    90deg,
+    rgba(5, 5, 5, 0.2) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  ), url(${header.image.sourceUrl})`}
+    >
+    </div>
+    <div class="mx-auto flex flex-col items-center px-5 pt-20 pb-0">
+      <h1 class="mb-5 text-center font-heading text-3xl font-bold sm:text-5xl">
+        {header.heading}
+      </h1>
+      <h2 class="mb-10 text-center font-heading text-2xl font-bold sm:text-4xl">
+        {header.date}
+      </h2>
+
+      <a
+        href={header.pricingBreakdown.link}
+        class="max-[800px] text-center text-2xl"
+        >{header.pricingBreakdown.text}</a
+      >
+      <hr class="my-5 w-full border-t border-grey-300" />
+    </div>
+  </div>
+</header>

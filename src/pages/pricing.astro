@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/Pricing/Header.astro';
+import Main from '../components/Pricing/Main/index.astro';
+import FooterGallery from '../components/Common/FooterGallery/FooterGallery.svelte';
+
+import { pricingPageQuery } from '../queries/pages/pricing';
+const data = await pricingPageQuery();
+const seo = data.page.seo;
+const gallery = data.themeGeneralSettings.footerGallery.gallery;
+const header = data.page.pricing.header;
+const disclaimer = data.page.pricing.disclaimer;
+
+const bungalows = data.bungalows.nodes.map((m: any) => {
+  return m.models.modelDetails;
+});
+
+const loftedBungalows = data.bungalows.nodes.map((m: any) => {
+  if (m.models.loftedOption) return m.models.loftedModelDetails;
+});
+
+const twoStoreys = data.twoStoreys.nodes.map((m: any) => {
+  return m.models.modelDetails;
+});
+
+const bungalowTownTris = data.bungalowTownTris.nodes.map((m: any) => {
+  return m.models.modelDetails;
+});
+
+const bungalowTownSemis = data.bungalowTownSemis.nodes.map((m: any) => {
+  return m.models.modelDetails;
+});
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <Main
+    twoStoreys={twoStoreys}
+    bungalows={bungalows}
+    loftedBungalows={loftedBungalows}
+    bungalowTownTris={bungalowTownTris}
+    bungalowTownSemis={bungalowTownSemis}
+    disclaimer={disclaimer}
+  />
+  <FooterGallery gallery={gallery} />
+</Layout>

@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import Header from '../../components/VillageLife/Header.astro';
+import Main from '../../components/VillageLife/Main.astro';
+import Cta from '../../components/VillageLife/Cta.astro';
+import { villageLifePageQuery } from '../../queries/pages/village-life';
+
+const data = await villageLifePageQuery();
+const seo = data.page.seo;
+
+const header = data.page.villagelife.header;
+const main = data.page.villagelife.main;
+const villageServices = data.villageServices;
+const cta = data.page.villagelife.cta;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <Main villageServices={villageServices} main={main} />
+  <Cta cta={cta} />
+</Layout>

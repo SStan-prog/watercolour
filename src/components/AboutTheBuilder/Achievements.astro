@@ -1,0 +1,35 @@
+---
+import { Image } from '@astrojs/image/components';
+const { achievements } = Astro.props;
+---
+
+<section>
+  <div class="mx-auto flex w-full max-w-[1000px] flex-col py-20 px-5">
+    <h2 class="mb-16 text-center font-heading text-3xl font-bold sm:text-5xl">
+      {achievements.heading}
+    </h2>
+    <div
+      class="flex w-full flex-col flex-wrap items-center justify-around gap-10 md:flex-row"
+    >
+      {
+        achievements.achievements.map((a: any) => {
+          return (
+            <div class=" flex max-w-[250px]  flex-col items-center ">
+              <Image
+                src={a.image.sourceUrl}
+                alt={a.image.altText}
+                width={200}
+                aspectRatio={16 / 9}
+                format="webp"
+                fit="contain"
+                background="transparent"
+                class="mb-2"
+              />
+              <h3 class="text-center">{a.name}</h3>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

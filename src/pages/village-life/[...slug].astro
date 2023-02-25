@@ -1,0 +1,27 @@
+---
+import { getAllVillageServicesSlugs } from '../../queries/villageServices/villageServices';
+
+const { uri } = Astro.params;
+
+export async function getStaticPaths() {
+  const data = await getAllVillageServicesSlugs();
+
+  return data.villageServices.nodes.map((villageService: any) => {
+    return {
+      params: { slug: villageService.slug },
+      props: { villageService },
+    };
+  });
+}
+
+const { villageService } = Astro.props;
+
+import Layout from '../../layouts/PageLayout.astro';
+import VillageService from '../../components/Templates/VillageService.astro';
+
+const seo = villageService.seo;
+---
+
+<Layout seo={seo}>
+  <VillageService villageService={villageService.villageService} />
+</Layout>

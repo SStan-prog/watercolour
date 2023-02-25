@@ -4,7 +4,7 @@ export async function bungalowsQuery() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `{
-            models(where: {categoryName: "bungalow"}) {
+            models(where: {categoryName: "bungalow", orderby: {field: DATE, order: ASC}}) {
               edges {
                 node {
                   id

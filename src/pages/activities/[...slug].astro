@@ -1,0 +1,27 @@
+---
+import { getAllActivitySlugs } from '../../queries/activities/activities';
+
+const { uri } = Astro.params;
+
+export async function getStaticPaths() {
+  const data = await getAllActivitySlugs();
+
+  return data.activities.nodes.map((activity: any) => {
+    return {
+      params: { slug: activity.slug },
+      props: { activity },
+    };
+  });
+}
+
+const { activity } = Astro.props;
+
+import Layout from '../../layouts/PageLayout.astro';
+import Activity from '../../components/Templates/Activity.astro';
+
+const seo = activity.seo;
+---
+
+<Layout seo={seo}>
+  <Activity activity={activity.activity} />
+</Layout>

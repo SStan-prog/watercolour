@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/LocalImpact/header.astro';
+import ImpactPoints from '../components/LocalImpact/ImpactPoints/index.astro';
+
+import { localImpactPageQuery } from '../queries/pages/local-impact';
+const data = await localImpactPageQuery();
+const seo = data.page.seo;
+const header = data.page.localimpact.header;
+const impactPoints = data.page.localimpact.impactPoints;
+const footerImage = data.page.localimpact.footerImage;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <ImpactPoints impactPoints={impactPoints} footerImage={footerImage} />
+</Layout>

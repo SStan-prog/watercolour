@@ -1,0 +1,30 @@
+---
+import Slider from './Slider.svelte';
+import Card from './Card.astro';
+const { favourites } = Astro.props;
+---
+
+<section class="bg-grey-100">
+  <div class="mx-auto flex flex-col items-center py-20 px-5 lg:max-w-[1400px]">
+    <div class="text-center">
+      <h2 class="text:3xl mb-10 font-heading text-4xl font-bold sm:mb-20">
+        {favourites.length > 1 ? 'Westport Favourites' : 'A Westport Favourite'}
+      </h2>
+    </div>
+
+    {
+      favourites.length > 1 ? (
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-20">
+          {favourites.map((f: any) => {
+            return <Card favourite={f} />;
+          })}
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-20">
+          <div class="[&>*]:mb-2 [&>*]:text-lg" set:html={favourites[0].text} />
+          <Slider images={favourites[0].images} client:idle />
+        </div>
+      )
+    }
+  </div>
+</section>

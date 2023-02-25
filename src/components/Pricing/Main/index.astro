@@ -1,0 +1,50 @@
+---
+import Disclaimer from './disclaimer.astro';
+import Table from './Table.astro';
+const {
+  bungalows,
+  loftedBungalows,
+  twoStoreys,
+  bungalowTownTris,
+  bungalowTownSemis,
+  disclaimer,
+} = Astro.props;
+---
+
+<div class="mx-auto flex w-full flex-col items-center gap-20 py-10 px-5">
+  <section
+    class="w-full max-w-[820px] overflow-x-scroll table-scroll:overflow-auto"
+  >
+    <h2 class="mb-5 font-heading text-3xl font-bold">Bungalows</h2>
+    <Table models={bungalows} />
+  </section>
+  <section
+    class="w-full max-w-[820px] overflow-x-scroll table-scroll:overflow-auto"
+  >
+    <h2 class="mb-5 font-heading text-3xl font-bold">Bungalows + Lofts</h2>
+
+    <Table models={loftedBungalows} />
+  </section>
+
+  <section
+    class="w-full max-w-[820px] overflow-x-scroll table-scroll:overflow-auto"
+  >
+    <h2 class="mb-5 font-heading text-3xl font-bold">2 Storeys</h2>
+    <Table models={twoStoreys} />
+  </section>
+
+  <section
+    class="w-full max-w-[820px] overflow-x-scroll table-scroll:overflow-auto"
+  >
+    <h2 class="mb-5 font-heading text-3xl font-bold">Bungalow Town Semi</h2>
+    <Table models={bungalowTownSemis} />
+  </section>
+
+  <section
+    class="w-full max-w-[820px] overflow-x-scroll table-scroll:overflow-auto"
+  >
+    <h2 class="mb-5 font-heading text-3xl font-bold">Bungalow Town Tri</h2>
+    <Table models={bungalowTownTris} />
+  </section>
+  <Disclaimer disclaimer={disclaimer} />
+</div>

@@ -1,0 +1,68 @@
+---
+const { models } = Astro.props;
+---
+
+<table
+  class="relative table h-full w-full min-w-[800px] border-collapse border border-black-400 px-5"
+>
+  <tr class="flex w-full">
+    <th
+      class="w-full grow-0 border border-black-400 bg-green-light p-2 text-center font-bold"
+      >Model</th
+    >
+    <th
+      class="w-full grow-0 border border-black-400 bg-green-light p-2 text-center font-bold"
+      >SqFt</th
+    >
+    <th
+      class="w-full grow-0 border border-black-400 bg-green-light p-2 text-center font-bold"
+      >Beds</th
+    >
+    <th
+      class="w-full grow-0 border border-black-400 bg-green-light p-2 text-center font-bold"
+      >Baths</th
+    >
+    <th
+      class="w-full grow-0 border border-black-400 bg-green-light p-2 text-center font-bold"
+      >Garage</th
+    >
+    <th
+      class="w-full grow border border-black-400 bg-green-light p-2 text-center font-bold"
+      >Price</th
+    >
+  </tr>
+  {
+    models.map((model: any) => {
+      if (model) {
+        return (
+          <tr class="flex w-full">
+            <td class="border-black-400 w-full border p-2 text-center uppercase">
+              {model?.name
+                .toUpperCase()
+                .replace('THE', '')
+                .replace('BUNGALOW', '')
+                .replace(' + LOFT', '')
+                .replace('(INTERIOR UNIT)', '')
+                .replace('(END UNIT)', '')}
+            </td>
+            <td class="border-black-400 w-full border p-2 text-center uppercase">
+              {model?.squareFootage}
+            </td>
+            <td class="border-black-400 w-full border p-2 text-center uppercase">
+              {model?.beds}
+            </td>
+            <td class="border-black-400 w-full border p-2 text-center uppercase">
+              {model?.bathrooms}
+            </td>
+            <td class="border-black-400 w-full border p-2 text-center uppercase">
+              {model?.garage === 'Double' ? '2' : '1'}
+            </td>
+            <td class="border-black-400 w-full border p-2 text-center uppercase">
+              {model?.price}
+            </td>
+          </tr>
+        );
+      }
+    })
+  }
+</table>

@@ -15,6 +15,11 @@ export async function getModelNodeByURI(uri) {
                       seo {
                         metaDesc
                         title
+                        twitterDescription
+                        twitterTitle
+                        twitterImage {
+                          sourceUrl
+                        }
                       }
                       uri
                     }

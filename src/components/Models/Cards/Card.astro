@@ -1,22 +1,38 @@
 ---
 import { Image } from '@astrojs/image/components';
-const { model } = Astro.props;
+const { model, wide } = Astro.props;
 ---
 
 <div
   class="rounded-b-2xl shadow-xl transition-all duration-300 hover:scale-[.98] hover:shadow-none"
 >
   <div class="relative">
-    <Image
-      src={model.node.featuredImage.node.sourceUrl}
-      alt={model.node.featuredImage.node.altText}
-      width={600}
-      aspectRatio={4 / 2.8}
-      format="webp"
-      fit="cover"
-      background="transparent"
-      class="rounded-t-2xl"
-    />
+    {
+      wide ? (
+        <Image
+          src={model.node.featuredImage.node.sourceUrl}
+          alt={model.node.featuredImage.node.altText}
+          width={600}
+          aspectRatio={4 / 2}
+          format="webp"
+          fit="cover"
+          background="transparent"
+          class="rounded-t-2xl"
+        />
+      ) : (
+        <Image
+          src={model.node.featuredImage.node.sourceUrl}
+          alt={model.node.featuredImage.node.altText}
+          width={600}
+          aspectRatio={4 / 2.8}
+          format="webp"
+          fit="cover"
+          background="transparent"
+          class="rounded-t-2xl"
+        />
+      )
+    }
+
     <div class="absolute bottom-2 px-2">
       <h3 class="font-heading text-xl font-bold text-white sm:text-2xl">
         {model.node.models.modelDetails.name.replace('The', '')}

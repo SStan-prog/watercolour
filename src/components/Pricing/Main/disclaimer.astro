@@ -1,0 +1,12 @@
+---
+const { disclaimer } = Astro.props;
+---
+
+<section>
+  <div class="mx-auto flex w-full flex-col items-center pb-20">
+    <div
+      class="max-w-[800px] [&>p]:pb-2 [&>p]:text-grey-400"
+      set:html={disclaimer}
+    />
+  </div>
+</section>

@@ -1,48 +1,58 @@
 ---
+import Forms from './Forms/Forms.astro';
 interface Menu {
   menu: any;
 }
 
-const { menu } = Astro.props;
+const { menu, forms } = Astro.props;
 ---
 
-<footer class="bg-black-200">
-  <div class="px-5">
-    <div class="mx-auto flex max-w-6xl flex-wrap pt-10">
-      {
-        menu.menuItems.nodes.map((menuItem: any) => {
-          const hasChildren =
-            null !== menuItem.childItems.edges
-              ? menuItem.childItems.edges.length
-              : false;
-
-          return hasChildren ? (
-            <ul class="mb-10 mr-24">
-              <li class="font-heading mb-2 text-xl font-bold text-white">
-                <span>{menuItem.label}</span>
-              </li>
-              {menuItem.childItems.edges.map((subItem: any) => {
-                return (
-                  <li class="text-md mb-1 font-bold text-white">
-                    <a class="text-white" href={subItem.node.uri}>
-                      {subItem.node.label}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          ) : null;
-        })
-      }
-    </div>
+<footer class="relative pt-[50px]" id="register">
+  <div
+    class="bg-[100% 100px] absolute top-[0px] h-[50px] w-full rotate-180 bg-cover bg-center bg-no-repeat"
+    style="background-image:url('/wavesOpacity.svg')"
+  >
   </div>
-  <div class="bg-black-300 px-5">
-    <div class="w-full py-5">
-      <div class="mx-auto max-w-6xl">
-        <p style="color: #fff;">
-          © <span id="year"></span> Land Ark Developments. All Rights Reserved. Prices
-          & Standard Features are subject to change without notice. E & OE.
-        </p>
+  <div class="bg-black-200">
+    <Forms forms={forms} />
+    <div class="px-5">
+      <div class="mx-auto flex max-w-6xl flex-wrap pt-10">
+        {
+          menu.menuItems.nodes.map((menuItem: any) => {
+            const hasChildren =
+              null !== menuItem.childItems.edges
+                ? menuItem.childItems.edges.length
+                : false;
+
+            return hasChildren ? (
+              <ul class="mb-10 mr-24">
+                <li class="font-heading mb-2 text-xl font-bold text-white">
+                  <span>{menuItem.label}</span>
+                </li>
+                {menuItem.childItems.edges.map((subItem: any) => {
+                  return (
+                    <li class="text-md mb-1 font-bold text-white">
+                      <a class="text-white" href={subItem.node.uri}>
+                        {subItem.node.label}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : null;
+          })
+        }
+      </div>
+    </div>
+    <div class="bg-black-300 px-5">
+      <div class="w-full py-5">
+        <div class="mx-auto max-w-6xl">
+          <p style="color: #fff;">
+            © <span id="year"></span> Land Ark Developments. All Rights Reserved.
+            Prices & Standard Features are subject to change without notice. E &
+            OE.
+          </p>
+        </div>
       </div>
     </div>
   </div>

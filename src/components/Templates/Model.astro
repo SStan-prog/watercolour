@@ -1,6 +1,6 @@
 ---
 import Main from '../Model/Main.astro';
-import FooterGallery from '../Common/FooterGallery/FooterGallery.astro';
+import FooterGallery from '../Common/FooterGallery/FooterGallery.svelte';
 
 const { model, gallery } = Astro.props;
 ---
@@ -13,5 +13,5 @@ const { model, gallery } = Astro.props;
       <Main model={model.models.loftedModelDetails} />
     )
   }
-  <FooterGallery gallery={gallery} />
+  <FooterGallery gallery={gallery} client:idle />
 </div>

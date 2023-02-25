@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Header from '../components/AboutTheBuilder/Header.astro';
+import Achievements from '../components/AboutTheBuilder/Achievements.astro';
+import PreviousCommunities from '../components/AboutTheBuilder/PreviousCommunities.astro';
+import Sustainability from '../components/AboutTheBuilder/Sustainability.astro';
+
+import { aboutTheBuilderPageQuery } from '../queries/pages/about-the-builder';
+const data = await aboutTheBuilderPageQuery();
+const seo = data.page.seo;
+
+const header = data.page.aboutthebuilder.header;
+const achievements = data.page.aboutthebuilder.achievements;
+const previousCommunities = data.page.aboutthebuilder.previousCommunities;
+const sustainability = data.page.aboutthebuilder.sustainability;
+---
+
+<Layout seo={seo}>
+  <Header header={header} />
+  <Achievements achievements={achievements} />
+  <PreviousCommunities previousCommunities={previousCommunities} />
+  <Sustainability sustainability={sustainability} />
+</Layout>
