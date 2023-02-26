@@ -13,7 +13,6 @@ const { model } = Astro.props;
       aspectRatio={4 / 2.8}
       format="webp"
       fit="cover"
-      background="transparent"
       class="rounded-t-2xl"
     />
     <div
@@ -23,9 +22,12 @@ const { model } = Astro.props;
         {model.node.mrHomes.modelDetails.name.replace('The', '')}
       </h3>
       <p class="text-sm text-white">
-        {model.node.mrHomes.modelDetails.lot} - {
-          model.node.mrHomes.modelDetails.address
+        {
+          model.node.mrHomes.modelDetails.lot && (
+            <span>Lot # -{model.node.mrHomes.modelDetails.lot}</span>
+          )
         }
+        {model.node.mrHomes.modelDetails.address}
       </p>
     </div>
   </div>
@@ -66,14 +68,23 @@ const { model } = Astro.props;
           Move in <strong>{model.node.mrHomes.modelDetails.moveInDate}</strong>
         </p>
       </div>
-      <Button text={`Explore ${model.node.mrHomes.modelDetails.name}`} />
-      <a
-        href={model.node.mrHomes.modelDetails.brochureLink.mediaItemUrl}
-        target="_blank"
-        rel="noreferrer"
-        class="bold cursor-pointer rounded border-2 border-red bg-red bg-transparent px-2 py-1 text-center text-sm text-red transition duration-100 ease-linear hover:bg-red hover:text-white"
-        >View Brochure
-      </a>
+      <Button
+        text={`Explore ${model.node.mrHomes.modelDetails.name}`}
+        href={`/models/${model.node.mrHomes.modelDetails.modelLink}`}
+      />
+
+      {
+        model.node.mrHomes.modelDetails.brochureLink && (
+          <a
+            href={model.node.mrHomes.modelDetails.brochureLink.mediaItemUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="bold border-red bg-red text-red hover:bg-red cursor-pointer rounded border-2 bg-transparent px-2 py-1 text-center text-sm transition duration-100 ease-linear hover:text-white"
+          >
+            View Brochure
+          </a>
+        )
+      }
     </div>
   </div>
 </div>

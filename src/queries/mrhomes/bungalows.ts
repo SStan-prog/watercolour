@@ -24,6 +24,7 @@ export async function bungalowsQuery() {
                   name
                   price
                   squareFootage
+                  modelLink
                   image {
                     altText
                     sourceUrl

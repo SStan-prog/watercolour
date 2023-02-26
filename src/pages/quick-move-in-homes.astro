@@ -4,13 +4,16 @@ import Header from '../components/QuickMoveInHomes/Header.astro';
 import SitePlan from '../components/QuickMoveInHomes/SitePlan.astro';
 import BuyersJourney from '../components/QuickMoveInHomes/BuyersJourney.astro';
 import Bungalows from '../components/QuickMoveInHomes/Cards/Bungalows.astro';
+import BungalowTownTris from '../components/QuickMoveInHomes/Cards/BungalowTownTris.astro';
 import Sold from '../components/QuickMoveInHomes/Cards/Sold.astro';
 
 import { quickMoveInHomesPageQuery } from '../queries/pages/quick-move-in-moves';
 import { bungalowsQuery } from '../queries/mrhomes/bungalows';
+import { bungalowTownTrisQuery } from '../queries/mrhomes/bungalowTownTri';
 import { soldHomesQuery } from '../queries/mrhomes/sold';
 const data = await quickMoveInHomesPageQuery();
 const bungalows = await bungalowsQuery();
+const bungalowTownTris = await bungalowTownTrisQuery();
 const soldHomes = await soldHomesQuery();
 
 const seo = data.page.seo;
@@ -24,5 +27,6 @@ const buyersJourney = data.page.quick_move_in_homes.homeBuyersJourney;
   <SitePlan sitePlan={sitePlan} />
   <BuyersJourney buyersJourney={buyersJourney} />
   <Bungalows bungalows={bungalows} />
+  <BungalowTownTris bungalowTownTris={bungalowTownTris} />
   <Sold soldHomes={soldHomes} />
 </Layout>
