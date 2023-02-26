@@ -14,17 +14,19 @@ const { bungalowTownTris } = Astro.props;
     </div>
     <div class="flex w-full max-w-[1200px] flex-wrap gap-10 py-20 px-5">
       {
-        bungalowTownTris.mrHome.edges.map((model: any, i: number) => {
-          if (model?.tags?.nodes[0] === 'sold') {
-            return;
-          } else {
-            return (
-              <div>
-                <Card model={model} />
-              </div>
-            );
-          }
-        })
+        bungalowTownTris.mrHome.edges
+          .filter((m: any) => !m.node.tags.nodes[0])
+          .map((model: any, i: number) => {
+            if (model?.tags?.nodes[0] === 'sold') {
+              return;
+            } else {
+              return (
+                <div>
+                  <Card model={model} />
+                </div>
+              );
+            }
+          })
       }
     </div>
   </div>

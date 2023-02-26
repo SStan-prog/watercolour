@@ -58,7 +58,8 @@
         body: new URLSearchParams(data).toString(),
       })
         .then(() => console.log('Form successfully submitted'))
-        .then(() => window.open(fileUrl, '_blank'))
+        .then(() => alert('Successful submission'))
+        // .then(() => window.open(fileUrl, '_blank'))
         .catch((error) => alert(error));
     } else {
       console.log('Invalid Form');
@@ -67,8 +68,15 @@
 </script>
 
 <div class="flex flex-col items-center max-w-[500px] mx-auto">
-  <form class="flex flex-col w-full" on:submit|preventDefault={onSubmit}>
+  <form
+    class="flex flex-col w-full"
+    on:submit|preventDefault={onSubmit}
+    name="activities opt in"
+    method="POST"
+    data-netlify="true"
+  >
     <div class="w-full mb-5">
+      <input type="hidden" name="form-name" value="activities opt in" />
       <label for="email" class="hidden" />
       <input
         type="Email"
