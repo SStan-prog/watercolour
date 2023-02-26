@@ -32,9 +32,9 @@ const Videos = ({ videos }: any) => {
             pagination={{ clickable: true }}
             navigation
           >
-            {videos.videos.map((video: Video) => {
+            {videos.videos.map((video: Video, i: number) => {
               return (
-                <SwiperSlide className="pb-12">
+                <SwiperSlide className="pb-12" key={i}>
                   <iframe
                     src={`${video.video}?rel=0`}
                     className="aspect-video h-full w-full "

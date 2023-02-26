@@ -43,13 +43,13 @@
 </script>
 
 <svelte:window on:keydown={handle_keydown} />
-<div class="fixed z-10 top-0 left-0 w-full h-full " on:click={close} />
+<div class="fixed z-[999] top-0 left-0 w-full h-full " on:click={close} />
 
 <div
   role="dialog"
   aria-modal="true"
   bind:this={modal}
-  class=" w-full px-5 max-w-[650px] z-10 h-auto fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 "
+  class=" w-full px-5 max-w-[550px] z-[999] h-auto fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 "
 >
   <div class="rounded-xl relative shadow-3xl">
     <button

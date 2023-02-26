@@ -74,7 +74,7 @@
       id="email"
       name="email"
       placeholder="Enter your email here"
-      class = "border-grey-300 border w-full rounded-full p-3 sm:p-5 text-base sm:text-xl"
+      class = "border-grey-300 border w-full rounded-full p-2 sm:p-3 text-base sm:text-xl"
     />
     {#if errors.email?.required?.error}
       <p class="error-message bg-[#e12d2d] text-white my-2 p-2 rounded">
