@@ -190,11 +190,7 @@ export async function getAllUris() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `query GetAllUris {
-            terms {
-              nodes {
-                uri
-              }
-            }
+            
             posts(first: 100) {
               nodes {
                 uri
