@@ -8,6 +8,24 @@
   // OPT IN REWARD FILE
   export let fileUrl: any;
 
+  //SUCCESS MESSAGE
+  let showSuccessMessage = false;
+  function displaySuccessMessage() {
+    showSuccessMessage = true;
+    setTimeout(() => {
+      showSuccessMessage = false;
+    }, 3000);
+  }
+
+  // ERROR MESSAGE
+  let showErrorMessage = false;
+  function displayErrorMessage() {
+    showErrorMessage = true;
+    setTimeout(() => {
+      showErrorMessage = false;
+    }, 3000);
+  }
+
   // FORM VALIDATION
 
   let errors: { [inputName: string]: ValidatorResult } = {};
@@ -57,10 +75,17 @@
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(data).toString(),
       })
-        .then(() => console.log('Form successfully submitted'))
-        .then(() => alert('Successful submission'))
-        // .then(() => window.open(fileUrl, '_blank'))
-        .catch((error) => alert(error));
+        .then(() => displaySuccessMessage())
+        .then(() => {
+          setTimeout(() => {
+            e.target.reset();
+            window.open(fileUrl, '_blank');
+          }, 1000);
+        })
+        .catch((error) => {
+          console.log(error);
+          displayErrorMessage();
+        });
     } else {
       console.log('Invalid Form');
     }
@@ -86,7 +111,7 @@
         placeholder="Email"
       />
       {#if errors.email?.required?.error}
-        <p class="error-message bg-[#e12d2d] text-white my-2 p-2 rounded">
+        <p class="error-message bg-red-form text-white my-2 p-2 rounded">
           Please provide your email address.
         </p>
       {/if}
@@ -97,5 +122,19 @@
       class="w-full transition-colors p-3 text-2xl text-white hover:text-red border-2 bg-red border-red rounded hover:bg-transparent"
       >View Now</button
     >
+    {#if showSuccessMessage}
+      <p
+        class="success-message bg-green-form text-white my-2 p-2 rounded text-center"
+      >
+        Your submission was successful!
+      </p>
+    {/if}
+    {#if showErrorMessage}
+      <p
+        class="error-message bg-red-form text-white my-2 p-2 rounded text-center"
+      >
+        We're sorry, something went wrong.<br /> Please try submitting agian.
+      </p>
+    {/if}
   </form>
 </div>

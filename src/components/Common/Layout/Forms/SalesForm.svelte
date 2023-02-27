@@ -7,6 +7,24 @@
     ValidatorResult,
   } from '../../../../utlities/Validators';
 
+  // SUCCESS MESSAGE
+  let showSuccessMessage = false;
+  function displaySuccessMessage() {
+    showSuccessMessage = true;
+    setTimeout(() => {
+      showSuccessMessage = false;
+    }, 3000);
+  }
+
+  // ERROR MESSAGE
+  let showErrorMessage = false;
+  function displayErrorMessage() {
+    showErrorMessage = true;
+    setTimeout(() => {
+      showErrorMessage = false;
+    }, 3000);
+  }
+
   let errors: { [inputName: string]: ValidatorResult } = {};
 
   let form: {
@@ -60,7 +78,21 @@
     validateForm(data);
 
     if (isFormValid()) {
-      console.log(data);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString(),
+      })
+        .then(() => displaySuccessMessage())
+        .then(() =>
+          setTimeout(() => {
+            e.target.reset();
+          }, 1000)
+        )
+        .catch((error) => {
+          console.log(error);
+          displayErrorMessage();
+        });
     } else {
       console.log('Invalid Form');
     }
@@ -79,11 +111,13 @@
     {@html salesForm.body}
   </div>
   <form
-    method="post"
-    action="/"
+    name="Sales Form"
+    method="POST"
+    data-netlify="true"
     class="flex flex-col w-full"
     on:submit|preventDefault={onSubmit}
   >
+    <input type="hidden" name="form-name" value="Sales Form" />
     <div class="w-full mb-5">
       <label for="firstName" class="hidden" />
       <input
@@ -159,5 +193,19 @@
       class="w-full p-3 text-2xl text-white border-2 border-white rounded  hover:bg-red transition-colors hover:border-red"
       >Submit</button
     >
+    {#if showSuccessMessage}
+      <p
+        class="success-message bg-green-form text-white my-2 p-2 rounded text-center"
+      >
+        Thank you for submitting, we will get back to you soon!
+      </p>
+    {/if}
+    {#if showErrorMessage}
+      <p
+        class="error-message bg-red-form text-white my-2 p-2 rounded text-center"
+      >
+        We're sorry, something went wrong.<br /> Please try submitting agian.
+      </p>
+    {/if}
   </form>
 </div>

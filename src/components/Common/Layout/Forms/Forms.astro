@@ -1,6 +1,6 @@
 ---
 import SocialMedia from './SocialMedia.astro';
-import ContactForm from './ContactForm.svelte';
+import NewsLetterForm from './NewsLetterForm.svelte';
 import SalesForm from './SalesForm.svelte';
 
 const { forms } = Astro.props;
@@ -18,7 +18,7 @@ const salesForm = forms.salesForm;
       <SalesForm client:load salesForm={salesForm} />
     </div>
     <div class="flex max-w-[600px] flex-col items-center">
-      <ContactForm client:load contactForm={contactForm} />
+      <NewsLetterForm client:load contactForm={contactForm} />
 
       <SocialMedia socialMedia={socialMedia} />
     </div>
