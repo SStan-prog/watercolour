@@ -7,6 +7,10 @@
     ValidatorResult,
   } from '../../../../utlities/Validators';
 
+  //REALTOR NAME CONDITIONAL
+
+  let workingWithRealtor = false;
+
   // SUCCESS MESSAGE
   let showSuccessMessage = false;
   function displaySuccessMessage() {
@@ -188,6 +192,41 @@
         placeholder="Watercolour interests me because..."
       />
     </div>
+    <div class="w-full mb-5">
+      <label for="message" class="hidden" />
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y"
+        placeholder="Watercolour interests me because..."
+      />
+    </div>
+    <div class="w-full mb-5">
+      <label for="realtor" class="hidden" />
+      <input
+        id="realtor"
+        name="realtor"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y"
+        placeholder="Are you a realtor?"
+      />
+    </div>
+    <div class="w-full mb-5 mt-5">
+      <div class="flex mb-2">
+        <input type="checkbox" bind:checked={workingWithRealtor} />
+        <p class="text-white ml-5 text-xl">Are you working with a Realtor</p>
+      </div>
+      <div class="invisible" class:workingWithRealtor>
+        <label for="realtor-name" class="hidden" />
+        <input
+          id="realtor-name"
+          name="Realtor Name"
+          type="text"
+          class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y"
+          placeholder="Realtor Name"
+        />
+      </div>
+    </div>
     <button
       type="submit"
       class="w-full p-3 text-2xl text-white border-2 border-white rounded  hover:bg-red transition-colors hover:border-red"
@@ -209,3 +248,9 @@
     {/if}
   </form>
 </div>
+
+<style>
+  .workingWithRealtor {
+    visibility: visible;
+  }
+</style>
