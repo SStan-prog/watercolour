@@ -193,16 +193,6 @@
       />
     </div>
     <div class="w-full mb-5">
-      <label for="message" class="hidden" />
-      <textarea
-        id="message"
-        name="message"
-        rows="4"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y"
-        placeholder="Watercolour interests me because..."
-      />
-    </div>
-    <div class="w-full mb-5">
       <label for="realtor" class="hidden" />
       <input
         id="realtor"
