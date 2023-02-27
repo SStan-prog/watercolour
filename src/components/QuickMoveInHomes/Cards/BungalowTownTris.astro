@@ -12,7 +12,9 @@ const { bungalowTownTris } = Astro.props;
         Available Bungalow Town Tri
       </h2>
     </div>
-    <div class="flex w-full max-w-[1200px] flex-wrap gap-10 py-20 px-5">
+    <div
+      class="flex w-full max-w-[1200px] flex-wrap justify-center gap-10 py-20 px-5"
+    >
       {
         bungalowTownTris.mrHome.edges
           .filter((m: any) => !m.node.tags.nodes[0])

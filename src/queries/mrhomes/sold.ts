@@ -4,7 +4,7 @@ export async function soldHomesQuery() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `{
-            mrHome(where: {tag: "sold"}) {
+            mrHome(first: 100, where: {tag: "sold"}) {
               edges {
                 node {
                   id
@@ -15,6 +15,7 @@ export async function soldHomesQuery() {
                         altText
                         sourceUrl
                       }
+                      basement
                       lot
                       address
                       name

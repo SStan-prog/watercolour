@@ -17,7 +17,9 @@
   export let menu;
 </script>
 
-<nav class=" mx-auto w-full max-w-6xl px-5 sm:px-10 lg:px-0 ">
+<nav
+  class=" mx-auto w-full  px-5 sm:px-10 lg:px-10 sm:sticky sm:top-0 bg-white max-w-[1920px] sm:shadow-md z-50"
+>
   <div class=" relative flex items-center ">
     <div class=" w-44  sm:w-60 md:w-80 ">
       <a href="/" class="w-full">

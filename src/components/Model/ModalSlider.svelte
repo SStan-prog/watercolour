@@ -57,7 +57,7 @@
   role="dialog"
   aria-modal="true"
   bind:this={modal}
-  class="modal-model-slider w-[95vw] md:w-[80vw] z-10 h-auto fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2"
+  class="modal-model-slider w-[80vw] sm:w-[85vw] md:w-[65vw] lg:w-[75vw] z-10 h-auto fixed top-[55%] left-1/2  -translate-x-1/2 -translate-y-1/2"
 >
   <Swiper
     modules={[Navigation, Thumbs]}
@@ -82,7 +82,7 @@
 
 <button
   on:click={close}
-  class="flex items-center justify-center w-10 sm:w-14 h-10 sm:h-14 text-3xl fixed top-1 right-1 z-50 rounded-full group"
+  class="flex items-center justify-center w-10 sm:w-14 h-10 sm:h-13 text-3xl fixed top-16 sm:top-28 lg:top-22 right-1 z-50 rounded-full group"
 >
   <img
     src="/icons/close.svg"

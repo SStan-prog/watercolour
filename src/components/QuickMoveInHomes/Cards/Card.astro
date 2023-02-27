@@ -28,6 +28,13 @@ const { model } = Astro.props;
           )
         }
         {model.node.mrHomes.modelDetails.address}
+        {
+          model.node.mrHomes.modelDetails.basement && (
+            <p class="text-sm font-bold text-white">
+              Includes Walkout Basement
+            </p>
+          )
+        }
       </p>
     </div>
   </div>

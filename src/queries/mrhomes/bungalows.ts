@@ -12,6 +12,7 @@ export async function bungalowsQuery() {
               mrHomes {
                 modelDetails {
                   address
+                  basement
                   bathrooms
                   beds
                   brochureLink {

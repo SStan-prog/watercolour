@@ -12,6 +12,7 @@ export async function bungalowTownTrisQuery() {
                 mrHomes {
                   modelDetails {
                     address
+                    basement
                     bathrooms
                     beds
                     brochureLink {

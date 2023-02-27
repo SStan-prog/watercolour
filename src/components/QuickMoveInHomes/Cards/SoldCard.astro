@@ -12,7 +12,6 @@ const { soldHome } = Astro.props;
       aspectRatio={4 / 2.8}
       format="webp"
       fit="cover"
-      background="transparent"
       class="rounded-2xl"
     />
     <div
@@ -21,11 +20,17 @@ const { soldHome } = Astro.props;
       <h3 class="font-heading text-lg font-bold text-white sm:text-xl">
         {soldHome.node.mrHomes.modelDetails.name.replace('The', '')}
       </h3>
-      <p class="text-sm text-white">
-        {soldHome.node.mrHomes.modelDetails.lot} - {
+      <p class="mb-1 text-sm text-white">
+        Lot #{soldHome.node.mrHomes.modelDetails.lot} - {
           soldHome.node.mrHomes.modelDetails.address
         }
       </p>
+
+      {
+        soldHome.node.mrHomes.modelDetails.basement && (
+          <p class="text-sm font-bold text-white">Includes Walkout Basement</p>
+        )
+      }
     </div>
     <div
       class="absolute top-0 left-0 z-10 h-full w-full rounded-2xl bg-white bg-opacity-60"
