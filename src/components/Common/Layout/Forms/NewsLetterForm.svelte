@@ -115,10 +115,10 @@
   >
     <input type="hidden" name="form-name" value="Newsletter Form" />
     <div class="w-full mb-5">
-      <label for="firstName" class="hidden" />
+      <label for="nl-firstName" class="hidden" />
       <input
         type="text"
-        id="firstName"
+        id="nl-firstName"
         name="first_name"
         class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
         placeholder="First Name"
@@ -130,10 +130,10 @@
       {/if}
     </div>
     <div class="w-full mb-5">
-      <label for="lastName" class="hidden" />
+      <label for="nl-lastName" class="hidden" />
       <input
         type="text"
-        id="lastName"
+        id="nl-lastName"
         name="last_name"
         class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
         placeholder="Last Name"
@@ -145,10 +145,10 @@
       {/if}
     </div>
     <div class="w-full mb-5">
-      <label for="email" class="hidden" />
+      <label for="nl-email" class="hidden" />
       <input
         type="Email"
-        id="email"
+        id="nl-email"
         name="email"
         class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
         placeholder="Email"
@@ -160,10 +160,10 @@
       {/if}
     </div>
     <div class="w-full mb-5">
-      <label for="phone" class="hidden" />
+      <label for="nl-phone" class="hidden" />
       <input
         type="tel"
-        id="phone"
+        id="nl-phone"
         name="phone_number"
         class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
         placeholder="Phone Number"

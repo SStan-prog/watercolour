@@ -213,7 +213,11 @@
     </div>
     <div class="w-full mb-5 mt-5">
       <div class="flex mb-2">
-        <input type="checkbox" bind:checked={workingWithRealtor} />
+        <input
+          type="checkbox"
+          class="text-xl w-[20px] border-2 border-white text-red accent-red cursor-pointer"
+          bind:checked={workingWithRealtor}
+        />
         <p class="text-white ml-5 text-xl">Are you working with a Realtor</p>
       </div>
       <div class="invisible" class:workingWithRealtor>
