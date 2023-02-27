@@ -1,0 +1,83 @@
+[[redirects]]
+from = "/the-charleston-bungalow/"
+to =  "/models/the-charleston-bungalow/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-rideau/"
+to =  "/models/the-rideau/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-sydenham-bungalow/"
+to =  "/models/the-sydenham-bungalow/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-benson-bungalow/"
+to =  "/models/the-benson-bungalow/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-opinicon-bungalow/"
+to =  "/models/the-opinicon-bungalow/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-newboro-bungalow/"
+to =  "/models/the-newboro-bungalow/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-cedar-harmony/"
+to =  "/models/the-cedar-harmony/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-maple-hope/"
+to =  "/models/the-maple-hope/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-serenity-pine/"
+to =  "/models/the-serenity-pine/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-oak-haven/"
+to =  "/models/the-oak-haven/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-foley-town/"
+to =  "/models/the-foley-town/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/the-dunder-town/"
+to =  "/models/the-dunder-town/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/activities/culinary/"
+to =  "/village-life/restaurants-and-cafes"
+status = 301
+force = true
+
+[[redirects]]
+from = "/activities/aging-in-place/"
+to =  "/village-life/aging-in-place"
+status = 301
+force = true
