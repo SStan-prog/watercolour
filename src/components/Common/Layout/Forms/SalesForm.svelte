@@ -85,7 +85,7 @@
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: data,
+        body: new URLSearchParams(data).toString(),
       })
         .then(() => displaySuccessMessage())
         .then(() =>
