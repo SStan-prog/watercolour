@@ -39,6 +39,7 @@ const Videos = ({ videos }: any) => {
                     src={`${video.video}?rel=0`}
                     className="aspect-video h-full w-full "
                     loading="lazy"
+                    title="Youtube"
                   />
                 </SwiperSlide>
               );

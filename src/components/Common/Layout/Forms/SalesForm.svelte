@@ -203,8 +203,11 @@
     </div>
     <div class="w-full mb-5 mt-5">
       <div class="flex mb-2">
+        <label for="using-realtor" class="hidden" />
         <input
           type="checkbox"
+          id="using-realtor"
+          name="Using realtor?"
           class="text-xl w-[20px] border-2 border-white text-red accent-red cursor-pointer"
           bind:checked={workingWithRealtor}
         />
