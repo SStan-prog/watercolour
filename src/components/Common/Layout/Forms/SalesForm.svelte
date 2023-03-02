@@ -85,11 +85,12 @@
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString(),
+        body: data,
       })
         .then(() => displaySuccessMessage())
         .then(() =>
           setTimeout(() => {
+            console.log(data);
             e.target.reset();
           }, 1000)
         )
