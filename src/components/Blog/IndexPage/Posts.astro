@@ -25,6 +25,7 @@ const { posts } = Astro.props;
           'Dec',
         ];
 
+        console.log(post);
         return (
           <a
             href={`/blog${post.uri}`}
@@ -41,14 +42,17 @@ const { posts } = Astro.props;
                   format="webp"
                 />
               </div>
-              <div class="p-4">
-                <h2 class="mb-2 font-bold">{post.title}</h2>
+              <div class="[&>p]:text-black-400 p-4">
+                <h2 class="text-black-400 mb-2 font-bold">{post.title}</h2>
 
-                <div class=" text-grey-300 mb-1">
+                <div class="text-grey-300  mb-1">
                   by Land Ark | {monthNames[date.getMonth()]} {date.getDate()},{' '}
                   {date.getFullYear()}
                 </div>
-                <p set:html={post.excerpt} />
+                <p
+                  set:html={post.excerpt.replace(/<\/?(?:p|a)[^>]*>/gi, '')}
+                  class="text-black-400"
+                />
               </div>
             </article>
           </a>

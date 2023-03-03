@@ -79,6 +79,7 @@ export async function footerQuery() {
               heading
               instagramLink
               youtubeLink
+              tiktokLink
             }
           }
         }
@@ -114,7 +115,7 @@ export async function blogPageQuery() {
             }
           }
       }
-      posts {
+      posts (first: 100, where: {orderby: {field: DATE, order: DESC}}){
         nodes {
           date
           uri
@@ -190,7 +191,6 @@ export async function getAllUris() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: `query GetAllUris {
-            
             posts(first: 100) {
               nodes {
                 uri

@@ -18,16 +18,22 @@
 </script>
 
 <nav
-  class=" mx-auto w-full  px-5 sm:px-10 lg:px-10 sm:sticky sm:top-0 bg-white max-w-[1920px] shadow-md z-50"
+  class=" mx-auto w-full  px-5 sm:px-10 lg:px-10 sm:sticky sm:top-0 bg-white  shadow-md z-50 flex flex-col items-center "
 >
-  <div class=" relative flex items-center ">
-    <div class=" w-44  sm:w-60 md:w-80 ">
-      <a href="/" class="w-full">
-        <img src="/logos/main-logo.png" alt="Watercolour Westport" class=" " />
-      </a>
-    </div>
+  <div
+    class=" relative flex w-full lg:grid grid-cols-10 items-center justify-between max-w-[1100px]"
+  >
+    <a href="/" class="w-full col-span-2 xl:col-span-3">
+      <img
+        src="/logos/main-logo.png"
+        alt="Watercolour Westport"
+        class="w-full max-w-[200px] xl:max-w-[275px]"
+      />
+    </a>
 
-    <ul class=" ml-10 hidden w-full items-center justify-around lg:flex">
+    <ul
+      class="ml-auto  hidden  items-center gap-6 lg:flex col-span-8 xl:col-span-7 "
+    >
       {#each menu.menuItems.nodes as menuItem}
         {#if menuItem.childItems.edges.length > 0}
           <li key={menuItem.label} class=" group relative py-5">

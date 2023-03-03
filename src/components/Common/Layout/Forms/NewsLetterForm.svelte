@@ -13,7 +13,7 @@
     showSuccessMessage = true;
     setTimeout(() => {
       showSuccessMessage = false;
-    }, 3000);
+    }, 5000);
   }
 
   // ERROR MESSAGE
@@ -22,7 +22,7 @@
     showErrorMessage = true;
     setTimeout(() => {
       showErrorMessage = false;
-    }, 3000);
+    }, 5000);
   }
 
   let errors: { [inputName: string]: ValidatorResult } = {};

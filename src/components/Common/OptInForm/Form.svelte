@@ -5,8 +5,9 @@
     ValidatorResult,
   } from '../../../utlities/Validators';
 
-  // OPT IN REWARD FILE
+  // Form Data from WP
   export let fileUrl: any;
+  export let formName: any;
 
   //SUCCESS MESSAGE
   let showSuccessMessage = false;
@@ -14,7 +15,7 @@
     showSuccessMessage = true;
     setTimeout(() => {
       showSuccessMessage = false;
-    }, 3000);
+    }, 5000);
   }
 
   // ERROR MESSAGE
@@ -23,7 +24,7 @@
     showErrorMessage = true;
     setTimeout(() => {
       showErrorMessage = false;
-    }, 3000);
+    }, 5000);
   }
 
   // FORM VALIDATION
@@ -96,12 +97,12 @@
   <form
     class="flex flex-col w-full"
     on:submit|preventDefault={onSubmit}
-    name="activities opt in"
+    name={formName}
     method="POST"
     data-netlify="true"
   >
     <div class="w-full mb-5">
-      <input type="hidden" name="form-name" value="activities opt in" />
+      <input type="hidden" name="form-name" value={formName} />
       <label for="email" class="hidden" />
       <input
         type="Email"

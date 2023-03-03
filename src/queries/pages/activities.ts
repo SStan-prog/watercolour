@@ -39,6 +39,7 @@ export async function activitiesPageQuery() {
               fileDownload {
                 mediaItemUrl
               }
+              formName
               heading
               image {
                 altText

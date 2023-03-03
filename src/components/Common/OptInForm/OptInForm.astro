@@ -21,6 +21,10 @@ const { props } = Astro.props;
       class="mb-20 text-center text-lg leading-relaxed text-white sm:text-2xl"
       set:html={props.optin.body}
     />
-    <Form client:load fileUrl={props.optin.fileDownload.mediaItemUrl} />
+    <Form
+      client:load
+      fileUrl={props.optin.fileDownload.mediaItemUrl}
+      formName={props.optin.formName}
+    />
   </div>
 </section>
