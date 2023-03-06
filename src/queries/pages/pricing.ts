@@ -28,6 +28,17 @@ export async function pricingPageQuery() {
                   }
                 }
                 disclaimer
+                standardFeaturesDownload {
+                  body
+                  heading
+                  image {
+                    altText
+                    sourceUrl
+                  }
+                  downloadFile {
+                    mediaItemUrl
+                  }
+                }
               }
             }
             bungalows: models(where: {categoryName: "bungalow", orderby: {field: DATE, order: ASC}}) {

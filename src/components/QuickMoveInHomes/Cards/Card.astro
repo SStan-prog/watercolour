@@ -24,9 +24,10 @@ const { model } = Astro.props;
       <p class="text-sm text-white">
         {
           model.node.mrHomes.modelDetails.lot && (
-            <span>Lot # -{model.node.mrHomes.modelDetails.lot}</span>
+            <span>Lot #{model.node.mrHomes.modelDetails.lot} -</span>
           )
         }
+
         {model.node.mrHomes.modelDetails.address}
         {
           model.node.mrHomes.modelDetails.basement && (

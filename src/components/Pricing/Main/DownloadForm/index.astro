@@ -1,0 +1,30 @@
+---
+import { Image } from '@astrojs/image/components';
+import Form from './Form.svelte';
+const { downloadForm } = Astro.props;
+
+console.log(downloadForm);
+---
+
+<section id="opt-in">
+  <div
+    class="mx-auto grid max-w-[1200px] grid-cols-10 items-center gap-10 border-t border-t-grey-300 py-20"
+  >
+    <div class="col-span-4">
+      <Image
+        src={downloadForm.image.sourceUrl}
+        alt={downloadForm.image.altText}
+        width={550}
+        aspectRatio={3 / 4}
+        format="webp"
+        fit="cover"
+        class="mx-auto border-2 border-black"
+      />
+    </div>
+    <div class="col-span-6 mt-5 text-center">
+      <h2 class="mb-2 text-2xl font-bold">{downloadForm.heading}</h2>
+      <p class="mb-10 text-xl">{downloadForm.body}</p>
+      <Form fileUrl={downloadForm.downloadFile.mediaItemUrl} />
+    </div>
+  </div>
+</section>

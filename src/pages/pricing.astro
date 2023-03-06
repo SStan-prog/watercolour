@@ -10,6 +10,7 @@ const seo = data.page.seo;
 const gallery = data.themeGeneralSettings.footerGallery.gallery;
 const header = data.page.pricing.header;
 const disclaimer = data.page.pricing.disclaimer;
+const downloadForm = data.page.pricing.standardFeaturesDownload;
 
 const bungalows = data.bungalows.nodes.map((m: any) => {
   return m.models.modelDetails;
@@ -41,6 +42,7 @@ const bungalowTownSemis = data.bungalowTownSemis.nodes.map((m: any) => {
     bungalowTownTris={bungalowTownTris}
     bungalowTownSemis={bungalowTownSemis}
     disclaimer={disclaimer}
+    downloadForm={downloadForm}
   />
   <FooterGallery gallery={gallery} client:idle />
 </Layout>

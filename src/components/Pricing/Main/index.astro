@@ -1,6 +1,7 @@
 ---
 import Disclaimer from './disclaimer.astro';
 import Table from './Table.astro';
+import DownloadForm from './DownloadForm/index.astro';
 const {
   bungalows,
   loftedBungalows,
@@ -8,6 +9,7 @@ const {
   bungalowTownTris,
   bungalowTownSemis,
   disclaimer,
+  downloadForm,
 } = Astro.props;
 ---
 
@@ -47,4 +49,5 @@ const {
     <Table models={bungalowTownTris} />
   </section>
   <Disclaimer disclaimer={disclaimer} />
+  <DownloadForm downloadForm={downloadForm} />
 </div>
