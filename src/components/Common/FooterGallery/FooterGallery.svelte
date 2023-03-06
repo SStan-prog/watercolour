@@ -23,6 +23,7 @@
           position="center "
           loading="lazy"
           class="aspect-square cursor-pointer object-cover"
+          format="webp"
         />
       </div>
     {/each}

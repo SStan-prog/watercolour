@@ -103,10 +103,10 @@
   >
     <div class="w-full mb-5">
       <input type="hidden" name="form-name" value={formName} />
-      <label for="email" class="hidden" />
+      <label for="opt-in-email" class="hidden" />
       <input
         type="Email"
-        id="email"
+        id="opt-in-email"
         name="email"
         class="w-full bg-white p-3 text-xl placeholder:text-grey-400 text-grey-400 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded"
         placeholder="Email"
