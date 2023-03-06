@@ -24,7 +24,7 @@ console.log(downloadForm);
     <div class="col-span-6 mt-5 text-center">
       <h2 class="mb-2 text-2xl font-bold">{downloadForm.heading}</h2>
       <p class="mb-10 text-xl">{downloadForm.body}</p>
-      <Form fileUrl={downloadForm.downloadFile.mediaItemUrl} />
+      <Form fileUrl={downloadForm.downloadFile.mediaItemUrl} client:load />
     </div>
   </div>
 </section>
