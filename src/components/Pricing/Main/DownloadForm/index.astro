@@ -8,7 +8,7 @@ console.log(downloadForm);
 
 <section id="opt-in">
   <div
-    class="mx-auto grid max-w-[1200px] grid-cols-10 items-center gap-10 border-t border-t-grey-300 py-20"
+    class="mx-auto flex max-w-[1200px] flex-col-reverse items-center gap-10 border-t border-t-grey-300 py-20 lg:grid lg:grid-cols-10"
   >
     <div class="col-span-4">
       <Image
@@ -21,7 +21,7 @@ console.log(downloadForm);
         class="mx-auto border-2 border-black"
       />
     </div>
-    <div class="col-span-6 mt-5 text-center">
+    <div class="col-span-6 mt-5 mb-10 text-center lg:mb-0">
       <h2 class="mb-2 text-2xl font-bold">{downloadForm.heading}</h2>
       <p class="mb-10 text-xl">{downloadForm.body}</p>
       <Form fileUrl={downloadForm.downloadFile.mediaItemUrl} client:load />

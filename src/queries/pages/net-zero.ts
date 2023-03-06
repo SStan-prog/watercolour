@@ -43,14 +43,7 @@ export async function netZeroPageQuery() {
                     videoEmbedLink
                   }
                 }
-                ctaForm {
-                  body
-                  heading
-                  image {
-                    altText
-                    sourceUrl
-                  }
-                }
+              
                 testimonials {
                   heading
                   testimonials {

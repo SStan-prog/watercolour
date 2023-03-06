@@ -51,14 +51,18 @@
   role="dialog"
   aria-modal="true"
   bind:this={modal}
-  class=" w-[95vw] md:w-[80vw] z-10 h-auto fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2"
+  class="w-[95vw] sm:w-[85vw]  lg:w-[75vw] z-10 h-auto fixed top-1/2 lg:top-[55%] left-1/2  -translate-x-1/2 -translate-y-1/2"
 >
   <iframe src={videoTourLink} class="w-full aspect-video" title="Model Tour" />
-
-  <button
-    on:click={close}
-    class="flex items-center justify-center w-10 sm:w-14 h-10 sm:h-14 text-3xl absolute -top-10 right-0 z-50 rounded-full bg-yellow"
-    ><div class="absolute h-6 sm:h-10 w-1  bg-black-400 rotate-45 " />
-    <div class="absolute h-6 sm:h-10 w-1  bg-black-400 -rotate-45 " />
-  </button>
 </div>
+
+<button
+  on:click={close}
+  class="flex items-center justify-center w-10 sm:w-14 h-10 sm:h-13 text-3xl fixed top-2 sm:top-28 lg:top-22 right-1 z-50 rounded-full group"
+>
+  <img
+    src="/icons/close.svg"
+    alt="close"
+    class="transition-opacity opacity-50 group-hover:opacity-100 h-[50px] w-[50px]"
+  />
+</button>

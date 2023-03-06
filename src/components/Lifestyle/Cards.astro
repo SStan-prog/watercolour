@@ -21,8 +21,8 @@ const { cards } = Astro.props;
                 width={550}
                 aspectRatio={4 / 3}
                 format="webp"
-                fit="contain"
-                class="mx-auto "
+                fit="cover"
+                class="mx-auto my-2"
               />
               <div class=" [&>p>a]:text-red [&>p]:mb-2" set:html={c.body} />
             </div>

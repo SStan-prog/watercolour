@@ -51,7 +51,7 @@
               <div
                 in:fade={{ delay: 500 }}
                 out:fade
-                class=" h-full w-full bg-cover bg-center overflow-y-scroll text-white [&>ul]:list-disc [&>p]:mb-2 p-5 sm:p-10"
+                class=" h-full w-full bg-cover bg-center overflow-y-scroll text-white [&>ul]:list-disc [&>p]:mb-2 p-8 sm:p-10"
                 style={`background-image: linear-gradient(to bottom, rgba(180, 65, 65, 0.8 ), rgba(180, 65, 65, 0.8)),url(${feature.image.sourceUrl})`}
               >
                 {@html feature.details}

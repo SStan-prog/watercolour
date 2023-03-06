@@ -129,7 +129,7 @@
         type="text"
         id="firstName"
         name="first_name"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded-none"
         placeholder="First Name"
       />
       {#if errors.first_name?.required?.error}
@@ -144,7 +144,7 @@
         type="text"
         id="lastName"
         name="last_name"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded-none"
         placeholder="Last Name"
       />
       {#if errors.last_name?.required?.error}
@@ -159,7 +159,7 @@
         type="Email"
         id="email"
         name="email"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded-none"
         placeholder="Email"
       />
       {#if errors.email?.required?.error}
@@ -174,7 +174,7 @@
         type="tel"
         id="phone"
         name="phone_number"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded-none"
         placeholder="Phone Number"
       />
       {#if errors.phone_number?.required?.error}
@@ -189,7 +189,7 @@
         id="message"
         name="message"
         rows="4"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y rounded-none"
         placeholder="Watercolour interests me because..."
       />
     </div>
@@ -198,7 +198,7 @@
       <input
         id="realtor"
         name="realtor"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y rounded-none"
         placeholder="Are you a realtor?"
       />
     </div>
@@ -209,7 +209,7 @@
           type="checkbox"
           id="using-realtor"
           name="Using realtor?"
-          class="text-xl w-[20px] border-2 border-white text-red accent-red cursor-pointer"
+          class="text-xl w-[20px] border-2 border-white text-red accent-red cursor-pointer rounded-none"
           bind:checked={workingWithRealtor}
         />
         <p class="text-white ml-5 text-xl">Are you working with a Realtor</p>
@@ -220,7 +220,7 @@
           id="realtor-name"
           name="Realtor Name"
           type="text"
-          class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y"
+          class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 resize-y rounded-none"
           placeholder="Realtor Name"
         />
       </div>

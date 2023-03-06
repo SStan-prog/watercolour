@@ -99,7 +99,7 @@
 
 <div class="flex flex-col items-center">
   <span
-    class="font-heading text-grey-200 font-bold text-4xl sm:text-5xl mb-2 text-cente"
+    class="font-heading text-grey-200 font-bold text-4xl sm:text-5xl mb-2 text-center"
   >
     {contactForm.heading}
   </span>
@@ -120,7 +120,7 @@
         type="text"
         id="nl-firstName"
         name="first_name"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded-none"
         placeholder="First Name"
       />
       {#if errors.first_name?.required?.error}
@@ -135,7 +135,7 @@
         type="text"
         id="nl-lastName"
         name="last_name"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded-none"
         placeholder="Last Name"
       />
       {#if errors.last_name?.required?.error}
@@ -150,7 +150,7 @@
         type="Email"
         id="nl-email"
         name="email"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded-none"
         placeholder="Email"
       />
       {#if errors.email?.required?.error}
@@ -165,7 +165,7 @@
         type="tel"
         id="nl-phone"
         name="phone_number"
-        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400"
+        class="w-full bg-transparent border-b-2 border-white p-3 text-xl placeholder:text-grey-200 text-grey-200 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded-none"
         placeholder="Phone Number"
       />
       {#if errors.phone_number?.required?.error}

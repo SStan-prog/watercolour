@@ -1,7 +1,6 @@
 <script lang="ts">
-
-    import { Validators } from "../../../utlities/Validators";
-    export let toggleModal
+  import { Validators } from '../../../utlities/Validators';
+  export let toggleModal;
 
   let errors: { [inputName: string]: ValidatorResult } = {};
 
@@ -48,25 +47,21 @@
 
     if (isFormValid()) {
       console.log(data);
-        toggleModal();
+      toggleModal();
     } else {
       console.log('Invalid Form');
     }
   }
 
-  export let buttonText
-
-
+  export let buttonText: any;
 </script>
 
-
 <form
-    method="post"
-    action="/"
-    class="flex flex-col w-full max-w-[400px]"
-    on:submit|preventDefault={onSubmit}
-  >
-
+  method="post"
+  action="/"
+  class="flex flex-col w-full max-w-[400px]"
+  on:submit|preventDefault={onSubmit}
+>
   <div class="w-full mb-5">
     <label for="email" class="hidden" />
     <input
@@ -74,7 +69,7 @@
       id="email"
       name="email"
       placeholder="Enter your email here"
-      class = "border-grey-300 border w-full rounded-full p-2 sm:p-3 text-base sm:text-xl"
+      class="border-grey-300 border w-full rounded-full p-2 sm:p-3 text-base sm:text-xl"
     />
     {#if errors.email?.required?.error}
       <p class="error-message bg-[#e12d2d] text-white my-2 p-2 rounded">
@@ -82,9 +77,9 @@
       </p>
     {/if}
   </div>
-    <button
+  <button
     type="submit"
-    class="w-full p-2 sm:p-3 text-2xl text-white border-2 border-red rounded-full  bg-red hover:bg-transparent transition-colors "
+    class="w-full p-2 sm:p-3 text-2xl text-white border-2 border-red rounded-full  bg-red hover:bg-transparent hover:text-red transition-colors "
     >{buttonText}</button
-    >
-  </form>
+  >
+</form>
