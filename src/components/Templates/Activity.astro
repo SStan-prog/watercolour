@@ -3,12 +3,16 @@ import Header from '../Activity/Header/index.astro';
 import Favourites from '../Activity/Favourites/index.astro';
 import Custom from '../Activity/Custom/index.astro';
 import Directory from '../Activity/Directory/index.astro';
-const { activity } = Astro.props;
+import OptInForm from '../Common/OptInForm/OptInForm.astro';
+const { activity, optInForm } = Astro.props;
+
+console.log(activity);
+console.log(optInForm);
 ---
 
 <div class="">
   {activity.header && <Header header={activity.header} />}
-
+  {optInForm && <OptInForm props={optInForm} />}
   {activity.favourites && <Favourites favourites={activity.favourites} />}
   {activity.customContent.heading && <Custom custom={activity.customContent} />}
   {activity.directory.heading && <Directory directory={activity.directory} />}

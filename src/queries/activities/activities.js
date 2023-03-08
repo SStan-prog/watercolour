@@ -44,14 +44,14 @@ export async function getAllActivitySlugs() {
           nodes {
             slug
             seo {
-                metaDesc
-                title
-                twitterDescription
-                twitterTitle
-                twitterImage {
-                  sourceUrl
-                }
+              metaDesc
+              title
+              twitterDescription
+              twitterTitle
+              twitterImage {
+                sourceUrl
               }
+            }
             activity {
               customContent {
                 body
@@ -79,6 +79,20 @@ export async function getAllActivitySlugs() {
               favourites {
                 text
                 images {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+            optinform {
+              optin {
+                body
+                formName
+                fileDownload {
+                  mediaItemUrl
+                }
+                heading
+                image {
                   altText
                   sourceUrl
                 }

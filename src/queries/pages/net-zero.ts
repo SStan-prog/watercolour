@@ -93,6 +93,7 @@ export async function netZeroPageQuery() {
                 optin {
                   body
                   heading
+                  formName
                   image {
                     altText
                     sourceUrl
