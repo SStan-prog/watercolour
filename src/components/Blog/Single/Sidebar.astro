@@ -3,30 +3,37 @@ const { date } = Astro.props;
 
 const postDate = new Date(date);
 const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 ---
 
 <aside class="hidden lg:block">
-  <div>
-    <p class="mb-10 font-heading text-lg font-bold">Written by Land Ark</p>
+  <div class="mt-20">
+    <p class="mb-5 font-heading text-lg font-bold">Written by Land Ark</p>
     <span class="flex">
       <img src="/icons/calendar.svg" alt="calendar" />
-      <p class="font-bold ml-10">
+      <p class="ml-5 font-bold">
         {monthNames[postDate.getMonth()]}
         {postDate.getDate()}, {postDate.getFullYear()}
       </p>
     </span>
+    <div class="mt-7">
+      <a
+        href="/blog"
+        class="hover:text-[rgb(180 65 20)] underline transition-colors"
+        >Read More Blogs</a
+      >
+    </div>
   </div>
 </aside>
