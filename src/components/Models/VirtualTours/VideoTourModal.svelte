@@ -53,7 +53,11 @@
   bind:this={modal}
   class="w-[95vw] sm:w-[85vw]  lg:w-[75vw] z-10 h-auto fixed top-1/2 lg:top-[55%] left-1/2  -translate-x-1/2 -translate-y-1/2"
 >
-  <iframe src={videoTourLink} class="w-full aspect-video" title="Model Tour" />
+  <iframe
+    src={`${videoTourLink}?rel=0`}
+    class="w-full aspect-video"
+    title="Model Tour"
+  />
 </div>
 
 <button

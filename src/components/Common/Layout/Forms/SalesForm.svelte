@@ -212,7 +212,7 @@
           bind:checked={workingWithRealtor}
         />
         <label for="using-realtor" class="text-white ml-5 text-xl"
-          >Are you working with a Realtor</label
+          >Are you working with a Realtor?</label
         >
       </div>
       <div class="invisible" class:workingWithRealtor>
