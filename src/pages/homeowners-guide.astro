@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import HomeownersGuide from '../components/HomeownersGuide/index.astro';
+
+import { homeownersGuideQuery } from '../queries/pages/homeowners-guide';
+const data = await homeownersGuideQuery();
+
+const seo = data.page.seo;
+---
+
+<Layout seo={seo}>
+  <HomeownersGuide
+    homeownersGuide={data.page.homeownersGuide.homeownersGuide}
+  />
+</Layout>

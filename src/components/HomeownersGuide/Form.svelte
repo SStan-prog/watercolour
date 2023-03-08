@@ -1,9 +1,6 @@
 <script lang="ts">
-  import { Validators } from '../../../utlities/Validators';
-  import type {
-    ValidatorFn,
-    ValidatorResult,
-  } from '../../../utlities/Validators';
+  import { Validators } from '../../utlities/Validators';
+  import type { ValidatorFn, ValidatorResult } from '../../utlities/Validators';
 
   // Form Data from WP
   export let fileUrl: any;
@@ -108,7 +105,7 @@
         type="Email"
         id="opt-in-email"
         name="email"
-        class="w-full  bg-white p-3 text-xl placeholder:text-grey-400 text-grey-400 focus:outline-none focus:bg-white focus:text-black-400 focus:placeholder:text-black-400 rounded"
+        class="w-full bg-grey-200 p-3 text-xl placeholder:text-grey-400 text-grey-400 focus:outline-none focus:bg-grey-200 focus:text-black-400 focus:placeholder:text-black-400 rounded"
         placeholder="Email"
       />
       {#if errors.email?.required?.error}

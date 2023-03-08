@@ -1,0 +1,44 @@
+---
+import Button from '../Buttons/Button.astro';
+import Form from './Form.svelte';
+import { Image } from '@astrojs/image/components';
+const { homeownersGuide } = Astro.props;
+
+console.log(homeownersGuide);
+---
+
+<section>
+  <div
+    class="mx-auto flex max-w-[1200px] flex-col items-center gap-10 py-20 px-5 sm:px-10 sm:py-32 md:grid md:grid-cols-8"
+  >
+    <div class="col-span-3 mb-5 mb-20 flex flex-col items-center">
+      <Image
+        src={homeownersGuide.previewImage.sourceUrl}
+        alt={homeownersGuide.previewImage.altText}
+        width={300}
+        aspectRatio={1 / 1.4}
+        format="webp"
+        fit="contain"
+        class="mx-auto border border-black-2 mb-5"
+        background="transparent"
+      />
+      <Button
+        large
+        blank
+        text="Download Preview!"
+        href={homeownersGuide.previewDownload.mediaItemUrl}
+      />
+    </div>
+    <div class="col-span-5 max-w-3xl">
+      <div
+        class="mb-10 text-center sm:mb-20 [&>p]:text-xl [&>p]:leading-relaxed sm:[&>p]:text-2xl"
+        set:html={homeownersGuide.text}
+      />
+      <Form
+        client:load
+        fileUrl={homeownersGuide.fullDownload.mediaItemUrl}
+        formName="homeowners-guide"
+      />
+    </div>
+  </div>
+</section>
