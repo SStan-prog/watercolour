@@ -117,6 +117,7 @@
   </div>
   <form
     name="Sales Form"
+    id="sales-form"
     method="POST"
     data-netlify="true"
     class="flex flex-col w-full"

@@ -108,6 +108,7 @@
   </div>
   <form
     name="Newsletter Form"
+    id="newsletter-form"
     method="POST"
     data-netlify="true"
     class="flex flex-col w-full"
