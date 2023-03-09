@@ -98,6 +98,7 @@
     class="flex flex-col w-full"
     on:submit|preventDefault={onSubmit}
     name={formName}
+    id={`${formName}-email`}
     method="POST"
     data-netlify="true"
   >

@@ -98,6 +98,7 @@
     class="flex flex-col w-full"
     on:submit|preventDefault={onSubmit}
     name="Standard Features Form"
+    id="standard-features-form-email"
     method="POST"
     data-netlify="true"
   >
