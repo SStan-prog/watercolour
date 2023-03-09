@@ -1,0 +1,35 @@
+---
+const { attachedBungalows } = Astro.props;
+import Card from './Card.astro';
+
+console.log(attachedBungalows[0].node.models);
+---
+
+<section class="bg-grey-100">
+  <div class="mx-auto max-w-[1200px] px-5 py-20">
+    <h2 class="mb-20 text-center font-heading text-3xl font-bold sm:text-4xl">
+      Attached Bungalows
+    </h2>
+    <div
+      class="grid-col-1 mx-auto grid max-w-[1000px] items-center gap-6 sm:grid-cols-2"
+    >
+      {
+        attachedBungalows.map((model: any, i: number) => {
+          console.log(model);
+
+          if (model?.node?.id === 'cG9zdDoxMTYy') {
+            return;
+          } else if (model?.node?.id === 'cG9zdDoxMTYx') {
+            return;
+          } else {
+            return (
+              <a href={`/models/${model.node.slug}`}>
+                <Card model={model} />
+              </a>
+            );
+          }
+        })
+      }
+    </div>
+  </div>
+</section>

@@ -8,6 +8,7 @@ import Bungalows from '../../components/Models/Cards/Bungalows.astro';
 import TwoStoreys from '../../components/Models/Cards/TwoStoreys.astro';
 import TwoStoreyTowns from '../../components/Models/Cards/TwoStoreyTowns.astro';
 import BungalowTownTri from '../../components/Models/Cards/BungalowTownTri.astro';
+import AttachedBungalows from '../../components/Models/Cards/AttachedBungalows.astro';
 import VirtualTours from '../../components/Models/VirtualTours/VirtualTours.svelte';
 import StandardFeatures from '../../components/Models/StandardFeatures/StandardFeatures.svelte';
 import MortgagePartner from '../../components/Models/MortgagePartner.astro';
@@ -17,12 +18,17 @@ import { bungalowsQuery } from '../../queries/models/bungalows';
 import { twoStoreysQuery } from '../../queries/models/twoStoreys';
 import { twoStoreyTownsQuery } from '../../queries/models/twoStoreyTowns';
 import { bungalowTownTriQuery } from '../../queries/models/bungalowTownTri';
+import { attachedBungalowQuery } from '../../queries/models/attachedBungalows';
 
 const data = await modelsPageQuery();
 const bungalows = await bungalowsQuery();
 const twoStoreys = await twoStoreysQuery();
 const twoStoreyTowns = await twoStoreyTownsQuery();
 const bungalowTownTri = await bungalowTownTriQuery();
+const attachedBungalows = await attachedBungalowQuery();
+const mergedAttachedBungalows = attachedBungalows.bungalowSemis.edges.concat(
+  attachedBungalows.bungalowTris.edges
+);
 
 const seo = data.page.seo;
 const header = data.page.models_page.header;
@@ -43,7 +49,8 @@ const mortgageProvider = data.page.models_page.mortgagePartner;
   <VirtualTours virtualTours={virtualTours} client:idle />
   <TwoStoreys twoStoreys={twoStoreys} />
   <!-- <TwoStoreyTowns twoStoreyTowns={twoStoreyTowns} /> -->
-  <BungalowTownTri bungalowTownTri={bungalowTownTri} />
+  <!-- <BungalowTownTri bungalowTownTri={bungalowTownTri} /> -->
+  <AttachedBungalows attachedBungalows={mergedAttachedBungalows} />
   <StandardFeatures standardFeatures={standardFeatures} client:idle />
   <MortgagePartner mortgageProvider={mortgageProvider} />
 </Layout>

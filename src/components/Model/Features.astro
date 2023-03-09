@@ -15,12 +15,17 @@ const { features, brochure } = Astro.props;
     </ul>
   </div>
   <div class="mx-auto flex max-w-[400px] flex-col gap-5">
-    <Button
-      text="Download Full Brochure"
-      href={brochure.mediaItemUrl}
-      blank
-      large
-    />
+    {
+      !!brochure ? (
+        <Button
+          text="Download Full Brochure"
+          href={brochure?.mediaItemUrl}
+          blank
+          large
+        />
+      ) : null
+    }
+
     <Button text="View Standard Feature List" href="/models/#standard" large />
   </div>
 </div>

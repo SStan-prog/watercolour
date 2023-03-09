@@ -12,7 +12,7 @@ const { custom } = Astro.props;
     </h2>
 
     {
-      custom.body ? (
+      custom.image ? (
         <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-20">
           <div class="custom-body" set:html={custom.body} />
           <div class="">
@@ -25,12 +25,9 @@ const { custom } = Astro.props;
           </div>
         </div>
       ) : (
-        <img
-          src={custom.image.sourceUrl}
-          alt={custom.image.altText}
-          loading="lazy"
-          class="rounded-lg"
-        />
+        <div class="flex w-full flex-col items-center">
+          <div class="custom-body w-full max-w-2xl" set:html={custom.body} />
+        </div>
       )
     }
   </div>
