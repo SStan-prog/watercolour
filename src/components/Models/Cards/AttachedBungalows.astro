@@ -1,8 +1,6 @@
 ---
 const { attachedBungalows } = Astro.props;
 import Card from './Card.astro';
-
-console.log(attachedBungalows[0].node.models);
 ---
 
 <section class="bg-grey-100">
@@ -15,8 +13,6 @@ console.log(attachedBungalows[0].node.models);
     >
       {
         attachedBungalows.map((model: any, i: number) => {
-          console.log(model);
-
           if (model?.node?.id === 'cG9zdDoxMTYy') {
             return;
           } else if (model?.node?.id === 'cG9zdDoxMTYx') {

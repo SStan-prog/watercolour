@@ -60,6 +60,7 @@
   method="post"
   action="/"
   class="flex flex-col w-full max-w-[400px]"
+  id="pop-up-form-email"
   on:submit|preventDefault={onSubmit}
 >
   <div class="w-full mb-5">
