@@ -55,6 +55,7 @@ export async function footerQuery() {
                       id
                       uri
                       label
+                      url
                     }
                   }
                 }
