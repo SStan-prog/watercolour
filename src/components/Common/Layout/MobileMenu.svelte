@@ -12,9 +12,9 @@
       <li
         class="whitespace-nowrap px-2 py-3 transition-all bg-mobile-white-faded"
       >
-        <a href={menuItem.uri} class="px-5 font-bold text-black-400">
+        <p class="px-5 font-bold text-black-400">
           {menuItem.label}
-        </a>
+        </p>
       </li>
     {:else}
       <li
