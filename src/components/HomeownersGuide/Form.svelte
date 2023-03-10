@@ -97,6 +97,7 @@
     name={formName}
     method="POST"
     data-netlify="true"
+    id="homeowner-guide-form-email"
   >
     <div class="w-full mb-5">
       <input type="hidden" name="form-name" value={formName} />
