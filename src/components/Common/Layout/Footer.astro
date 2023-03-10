@@ -30,8 +30,6 @@ const { menu, forms } = Astro.props;
                   <span>{menuItem.label}</span>
                 </li>
                 {menuItem.childItems.edges.map((subItem: any) => {
-                  console.log(subItem);
-
                   if (subItem.node.uri.includes('wp-content')) {
                     return (
                       <li class="text-md mb-1 font-bold text-white">
