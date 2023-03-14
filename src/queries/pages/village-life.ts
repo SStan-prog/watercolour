@@ -40,7 +40,7 @@ export async function villageLifePageQuery() {
                 
               }
             }
-            villageServices {
+            villageServices (where: {orderby: {field: DATE, order: ASC}}) {
                 nodes {
                   slug
                   title
